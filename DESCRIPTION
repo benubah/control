@@ -1,9 +1,10 @@
 Package: control
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Control Systems Toolbox
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Ben C. Ubah
+Maintainer: ubah.ben22@gmail.com
+Description: Solves most control systems problems relating to frequency response, LTI systems analysis, trasnfer function manipualations, and many more
+License: GPL-2
 LazyData: TRUE
+RoxygenNote: 6.0.1

@@ -4,12 +4,13 @@
 #' \code{tf} creates the model for a transfer function
 #'
 #' @details
-#' \code{tf} creates a model object for transfer functions, Where \code{num} is the numerator and \code{den} is the denominator
-#' of the transfer function. If the transfer function is not proper, it returns a list with length(num) = length(den).
+#' \code{tf} creates a model object for a transfer function, Where \code{num} is the numerator and \code{den} is the denominator
+#' of the transfer function.
 #'
 #'
 #' @param num   A numeric vector
 #' @param den   A numeric vector
+#' @param Ts Sample time for discrete time systems
 #'
 #' @return Returns an object of 'tf' class list with a proper transfer function or with warnings when not proper.
 #'
@@ -41,7 +42,7 @@ tf <- function(num, den, Ts=NULL){
     return(sys)
 }
 
-
+#' @export
 print.tf <- function(sys){
   argnum <- c(sys$num)
   argden <- c(sys$den)

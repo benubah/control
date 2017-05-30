@@ -27,16 +27,16 @@
 
 abcdchk = function(a,b,c,d){
 
-  msg="";
+  errmsg="";
   # print(a); print(ncol(a))
   if (nrow(a) != ncol(a)) {
-    msg="The A matrix must be square";
+    errmsg="The A matrix must be square";
   }
 
   if (nargs() > 1) {
     if (ncol(b)) {
       if (nrow(a) != nrow(b)) {
-        msg="The A and B matrices must have the same number of rows.";
+        errmsg="The A and B matrices must have the same number of rows.";
       }
     }
   }
@@ -44,7 +44,7 @@ abcdchk = function(a,b,c,d){
   if (nargs() > 2) {
     if (nrow(c)) {
       if (ncol(c) != ncol(a)) {
-        msg="The A and C matrices must have the same number of columns.";
+        errmsg="The A and C matrices must have the same number of columns.";
       }
     }
   }
@@ -52,23 +52,23 @@ abcdchk = function(a,b,c,d){
   if (nargs() > 3) {
     # Check if a,b,c matrices have zero dimensions. If so, just return.
     if ((nrow(a)+nrow(b)+nrow(c)) == 0) {
-      return(msg);
+      return(errmsg);
     }
     # Check C and D matrix compatibilities
     if (ncol(d) || ncol(b)) {
       if (nrow(d) != nrow(c)) {
-        msg="The C and D matrices must have the same number of rows.";
+        errmsg="The C and D matrices must have the same number of rows.";
       }
     }
     # Check B and D matrix compatibilities
     if (nrow(d) || nrow(c)) {
       if (ncol(d) != ncol(b)) {
-        msg="The B and D matrices must have the same number of columns.";
+        errmsg="The B and D matrices must have the same number of columns.";
       }
     }
   }
 
-  return(msg)
+  return(errmsg)
 
 
 }

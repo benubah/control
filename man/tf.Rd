@@ -10,6 +10,8 @@ tf(num, den, Ts = NULL)
 \item{num}{A numeric vector}
 
 \item{den}{A numeric vector}
+
+\item{Ts}{Sample time for discrete time systems}
 }
 \value{
 Returns an object of 'tf' class list with a proper transfer function or with warnings when not proper.
@@ -18,8 +20,8 @@ Returns an object of 'tf' class list with a proper transfer function or with war
 \code{tf} creates the model for a transfer function
 }
 \details{
-\code{tf} creates a model object for transfer functions, Where \code{num} is the numerator and \code{den} is the denominator
-of the transfer function. If the transfer function is not proper, it returns a list with length(num) = length(den).
+\code{tf} creates a model object for a transfer function, Where \code{num} is the numerator and \code{den} is the denominator
+of the transfer function.
 }
 \examples{
 tf(1, c(1,2,1))

@@ -1,9 +1,3 @@
-# This function creates a tranfer function sys list structure with inputs,
-#numerator and denominator as vectors
-# Usage:
-# sys <- tf(c(0,1), c(1,2,3))
-# sys$num
-# sys$den
 #' @title Create Transfer function Model.
 #'
 #' @description

@@ -1,13 +1,23 @@
-# tfchk.R
-# Syntax: tf1=tfchk(num,den)
-#
-# num is the numerator and den is the denominator.
-# If the transfer function is not proper given by (num,den) then
-# it returns lenth(numc) = length(denc).
-# The returned list for a=tfchk(num,den) is:
-#       tf1$numc
-#       tf1$denc
-
+#' @title Transfer function check.
+#'
+#' @description
+#' \code{tfchk} verifies the structure of a transfer function
+#'
+#' @details
+#' This is a utility function that is always invoked by other functions to
+#' verify the structure of \code{num, den}. Where \code{num} is the numerator and \code{den} is the denominator
+#' of the transfer function. If the transfer function is not proper, it returns a list with length(num) = length(den).
+#'
+#'
+#' @param num A numeric vector
+#' @param den A numeric vector
+#'
+#' @return Returns a list with a proper transfer function or with warnings when not proper.
+#'
+#' @examples
+#' tf1 <- tfchk(1, c(1,2,1))
+#'
+#' @export
 
 tfchk <- function(num,den){
   if(!is.matrix(num)){
@@ -29,7 +39,7 @@ tfchk <- function(num,den){
     stop("TFCHK: Denominator must be a row vector.");
   }
   if (ncol(num) > ncol(den)) {
-    print("TFCHK: Transfer function may not be proper.");
+    print("TFCHK: Transfer function may not be proper and may lead to errors. Num > Den");
   }
   if(ncol(num) <= ncol(den)){
     numc <- cbind(matrix(0,nrow(num), ncol(den)-ncol(num)),num);

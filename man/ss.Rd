@@ -7,15 +7,15 @@
 ss(A, B, C, D, Ts = NULL)
 }
 \arguments{
+\item{A}{An n x n matrix}
+
+\item{B}{An n x m matrix}
+
+\item{C}{An p x n matrix}
+
+\item{D}{An p x m matrix}
+
 \item{Ts}{Sample time for discrete time systems}
-
-\item{a}{An n x n matrix}
-
-\item{b}{An n x m matrix}
-
-\item{c}{An p x n matrix}
-
-\item{d}{An p x m matrix}
 }
 \value{
 Returns a list object of 'ss' class.

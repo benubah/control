@@ -7,10 +7,10 @@
 #' \code{ss} creates a model object for state-space systems.
 #'
 #'
-#' @param a         An n x n matrix
-#' @param b         An n x m matrix
-#' @param c         An p x n matrix
-#' @param d         An p x m matrix
+#' @param A         An n x n matrix
+#' @param B         An n x m matrix
+#' @param C         An p x n matrix
+#' @param D         An p x m matrix
 #' @param Ts        Sample time for discrete time systems
 #'
 #' @return Returns a list object of 'ss' class.

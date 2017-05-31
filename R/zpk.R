@@ -1,10 +1,10 @@
 #' @title Create Zero-Pole-Gain Model.
 #'
 #' @description
-#' \code{ss} creates the model for a system represented in zero-pole form
+#' \code{zpk} creates the model for a system represented in zero-pole form
 #'
 #' @details
-#' \code{ss} creates a model object for zero-pole systems.
+#' \code{zpk} creates a model object for zero-pole systems.
 #'
 #'
 #' @param zero      A vector

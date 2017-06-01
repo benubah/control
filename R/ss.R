@@ -15,6 +15,8 @@
 #'
 #' @return Returns a list object of 'ss' class.
 #'
+#' @seealso \code{\link{tf}} \code{\link{zpk}}
+#'
 #' @examples
 #' A <- rbind(c(-2, -1), c(1,0))
 #' B <- rbind(1,0)
@@ -31,22 +33,19 @@
 #'
 #' @export
 
-ss <- function(A,B,C,D,Ts=NULL){
+ss <- function (A, B, C, D, Ts = NULL) {
 
-      if((nargs() < 4) || (nargs() > 5)){
-        stop("ss: Incorrect number of inputs")
-      }
-        if(is.vector(A)){
+        if ( is.vector(A) ) {
           A <- matrix(A, nrow = sqrt(length(A)), byrow = TRUE)
          }
-            if(is.vector(B)){
+            if ( is.vector(B) ) {
               B <- matrix(B, nrow = nrow(A))
              }
-               if(is.vector(C)){
+               if ( is.vector(C) ) {
                    C <- matrix(C, ncol = ncol(A))
                }
-                   if(is.vector(D)){
-                        D <- matrix(D, ncol = ncol(B))
+                  if ( is.vector(D) ) {
+                      D <- matrix(D, ncol = ncol(B))
                    }
 
   response <- abcdchk(A,B,C,D);
@@ -55,7 +54,7 @@ ss <- function(A,B,C,D,Ts=NULL){
     stop(err_msg);
   }
 
-  if(is.null(Ts)){
+  if ( is.null(Ts) ) {
     cat("\n State-Space system: Continuous time model", "\n")
   } else {
     cat("\n State-Space system: Discrete time model", "\n")
@@ -66,11 +65,11 @@ ss <- function(A,B,C,D,Ts=NULL){
 }
 
 #' @export
-print.ss <- function(sys){
-  A <- sys$A;
-  B <- sys$B;
-  C <- sys$C;
-  D <- sys$D;
+print.ss <- function (sys) {
+  A <- sys$A
+  B <- sys$B
+  C <- sys$C
+  D <- sys$D
   Ts <- sys$Ts
 
   colnames(A) <- paste("x", 1:ncol(A), sep='')

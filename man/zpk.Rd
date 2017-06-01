@@ -19,10 +19,10 @@ zpk(zero, pole, gain, Ts = NULL)
 Returns a list object of 'zpk' class.
 }
 \description{
-\code{ss} creates the model for a system represented in zero-pole form
+\code{zpk} creates the model for a system represented in zero-pole form
 }
 \details{
-\code{ss} creates a model object for zero-pole systems.
+\code{zpk} creates a model object for zero-pole systems.
 }
 \examples{
 sys <- zpk(NULL, c(-1,-1), 1)
@@ -32,4 +32,7 @@ sys$z
 sys$p
 sys$k
 
+}
+\seealso{
+\code{\link{ss}} \code{\link{tf}}
 }

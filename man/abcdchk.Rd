@@ -19,7 +19,7 @@ abcdchk(a, b, c, d)
 Returns an empty string if matrix dimensions are consistent. Otherwise it returns the associated error message
 }
 \description{
-\code{abcdchk} verifies the dimensions of A,B,C,D matrices in its arguments, to be ascertain they correctly defined.
+\code{abcdchk} verifies the dimensions of A,B,C,D matrices in its arguments, to ascertain that they are correctly defined.
 }
 \details{
 This is a utility function that is always invoked by other functions to

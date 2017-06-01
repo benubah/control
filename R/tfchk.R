@@ -19,34 +19,35 @@
 #'
 #' @export
 
-tfchk <- function(num,den){
-  if(!is.matrix(num)){
+tfchk <- function (num, den) {
+
+  if ( !is.matrix(num) ) {
     num <- matrix(num,nrow=1)
   }
-  if(!is.matrix(den)){
+  if ( !is.matrix(den) ) {
     den <- matrix(den,nrow=1)
   }
   if ( is.null(num) ) {
-    print("TFCHK: Warning: Transfer function numerator should not be empty.\n");
+    print("TFCHK: Warning: Transfer function numerator should not be empty.\n")
   }
   if ( is.null(den) ) {
-    print("TFCHK: Warning: Transfer function denominator should not be empty.\n");
+    print("TFCHK: Warning: Transfer function denominator should not be empty.\n")
   }
   if ( !( (nrow(den) == 1) || (ncol(den) == 1)) ) {
-    stop("TFCHK: Denominator must be a row vector.");
+    stop("TFCHK: Denominator must be a row vector.")
   }
   if ( (nrow(den) != 1) && (ncol(den) == 1)) {
-    stop("TFCHK: Denominator must be a row vector.");
+    stop("TFCHK: Denominator must be a row vector.")
   }
   if (ncol(num) > ncol(den)) {
-    print("TFCHK: Transfer function may not be proper and may lead to errors. Num > Den");
+    print("TFCHK: Transfer function may not be proper and may lead to errors. Num > Den")
   }
-  if(ncol(num) <= ncol(den)){
-    numc <- cbind(matrix(0,nrow(num), ncol(den)-ncol(num)),num);
-  } else{
+  if ( ncol(num) <= ncol(den) ) {
+    numc <- cbind( matrix(0, nrow(num), ncol(den) - ncol(num) ), num)
+  } else {
     numc <- matrix(num, nrow = 1)
   }
   denc <- den;
-  return(list(numc=numc,denc=denc));
+  return (list(numc = numc, denc = denc));
 }
 

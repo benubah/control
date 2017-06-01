@@ -1,7 +1,7 @@
 #' @title State-space matrices check.
 #'
 #' @description
-#' \code{abcdchk} verifies the dimensions of A,B,C,D matrices in its arguments, to be ascertain they correctly defined.
+#' \code{abcdchk} verifies the dimensions of A,B,C,D matrices in its arguments, to ascertain that they are correctly defined.
 #'
 #' @details
 #' This is a utility function that is always invoked by other functions to
@@ -25,18 +25,17 @@
 #'
 #' @export
 
-abcdchk = function(a,b,c,d){
+abcdchk <- function (a, b, c, d) {
 
-  errmsg="";
-  # print(a); print(ncol(a))
+  errmsg <- ""
   if (nrow(a) != ncol(a)) {
-    errmsg="The A matrix must be square";
+    errmsg <- "The A matrix must be square"
   }
 
   if (nargs() > 1) {
     if (ncol(b)) {
       if (nrow(a) != nrow(b)) {
-        errmsg="The A and B matrices must have the same number of rows.";
+        errmsg <- "A and B must have the same number of rows."
       }
     }
   }
@@ -44,31 +43,27 @@ abcdchk = function(a,b,c,d){
   if (nargs() > 2) {
     if (nrow(c)) {
       if (ncol(c) != ncol(a)) {
-        errmsg="The A and C matrices must have the same number of columns.";
+        errmsg <- "A and C must have the same number of columns."
       }
     }
   }
 
   if (nargs() > 3) {
-    # Check if a,b,c matrices have zero dimensions. If so, just return.
-    if ((nrow(a)+nrow(b)+nrow(c)) == 0) {
+       if ( ( nrow(a) + nrow(b) + nrow(c) ) == 0) {
       return(errmsg);
     }
-    # Check C and D matrix compatibilities
+
     if (ncol(d) || ncol(b)) {
       if (nrow(d) != nrow(c)) {
-        errmsg="The C and D matrices must have the same number of rows.";
+        errmsg <- "C and D must have the same number of rows."
       }
     }
-    # Check B and D matrix compatibilities
+
     if (nrow(d) || nrow(c)) {
       if (ncol(d) != ncol(b)) {
-        errmsg="The B and D matrices must have the same number of columns.";
+        errmsg <- "B and D must have the same number of columns."
       }
     }
   }
-
   return(errmsg)
-
-
 }

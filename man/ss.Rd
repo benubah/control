@@ -41,3 +41,6 @@ sys$C
 sys$D
 
 }
+\seealso{
+\code{\link{tf}} \code{\link{zpk}}
+}

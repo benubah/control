@@ -30,3 +30,6 @@ sys1$num
 sys1$den
 
 }
+\seealso{
+\code{\link{ss}} \code{\link{zpk}}
+}

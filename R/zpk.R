@@ -14,6 +14,8 @@
 #'
 #' @return Returns a list object of 'zpk' class.
 #'
+#' @seealso \code{\link{ss}} \code{\link{tf}}
+#'
 #' @examples
 #' sys <- zpk(NULL, c(-1,-1), 1)
 #' sys <- zpk(c(1,2), c(3,4), 5)
@@ -25,15 +27,13 @@
 #' @export
 
 
-zpk <- function(zero, pole, gain, Ts=NULL){
-  if((nargs() < 3) || (nargs() > 4)){
-    stop("zpk: Incorrect number of inputs")
-  }
-  if(is.vector(zero) && is.vector(pole) && is.vector(gain)){
+zpk <- function(zero, pole, gain, Ts=NULL) {
+
+  if ( is.vector(zero) && is.vector(pole) && is.vector(gain) ) {
     z <- as.matrix(zero)
     p <- as.matrix(pole)
     k <- as.matrix(gain)
-  } else if((is.null(zero) || length(zero)==0) && is.vector(pole) && is.vector(gain)){
+  } else if ((is.null(zero) || length(zero)==0) && is.vector(pole) && is.vector(gain)) {
     z <- NULL;
     p <- as.matrix(pole)
     k <- as.matrix(gain)
@@ -41,7 +41,7 @@ zpk <- function(zero, pole, gain, Ts=NULL){
     stop("zpk: zero, pole, gain must be vectors.")
   }
 
-  if(is.null(Ts)){
+  if( is.null(Ts) ) {
     cat("\n Zero-Pole-Gain: Continuous time model", "\n")
   } else {
     cat("\n Zero-Pole-Gain: Discrete time model", "\n")

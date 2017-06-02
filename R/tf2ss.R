@@ -3,13 +3,18 @@
 #' @description
 #' \code{tf2ss} converts the model for a transfer function to state-space representation
 #'
+#' @usage \code{tf2ss(sys)}
+#' tf2ss(num, den)
+#'
 #' @details
 #' \code{tf2ss} converts a model object for a transfer function, Where \code{num} is the numerator and \code{den} is the denominator
 #' of the transfer function and \code{sys} is a transfer function object
 #'
 #' @param sys   An object of transfer function class
-#' @param num   A numeric vector
-#' @param den   A numeric vector
+#' @param num   A numeric vector containing the coefficients of the
+# numerator in descending powers of s
+#' @param den   A numeric vector containing the coefficients of the
+# denominator in descending powers of s
 #'
 #' @return Returns an object of 'ss' class.
 #'

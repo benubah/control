@@ -4,12 +4,13 @@
 \alias{tf2ss}
 \title{Transfer function model conversion to State-space model.}
 \usage{
+\code{tf2ss(sys)}
 tf2ss(num, den)
 }
 \arguments{
-\item{num}{A numeric vector}
+\item{num}{A numeric vector containing the coefficients of the}
 
-\item{den}{A numeric vector}
+\item{den}{A numeric vector containing the coefficients of the}
 
 \item{sys}{An object of transfer function class}
 }

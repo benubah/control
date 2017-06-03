@@ -54,7 +54,7 @@ ss <- function (A, B, C, D, Ts = NULL) {
     stop(err_msg);
   }
 
-  if ( is.null(Ts) ) {
+  if ( is.null(Ts) || Ts <= 0) {
     cat("\n State-Space system: Continuous time model", "\n")
   } else {
     cat("\n State-Space system: Discrete time model", "\n")

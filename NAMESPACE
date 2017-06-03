@@ -2,6 +2,7 @@
 
 S3method(print,ss)
 S3method(print,tf)
+S3method(print,zpk)
 export(abcdchk)
 export(nargchk)
 export(poly2str)

@@ -30,7 +30,7 @@ tf <- function (num, den, Ts=NULL) {
     num1 <- Dum$numc
     den1 <- Dum$denc
 
-      if ( is.null(Ts) ) {
+      if ( is.null(Ts) || Ts <= 0) {
            cat("\nTransfer Function: Continuous time model", "\n\n")
       } else {
            cat("\nTransfer function: Discrete time model", "\n\n")

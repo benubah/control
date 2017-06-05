@@ -3,10 +3,10 @@
 #' @description
 #' \code{ss2tf} converts the model for a state-space system to transfer function representation
 #'
-#' @usage ss2tf(sys)
-#' ss2tf(sys, iu) for systems with more than one input
+#' @usage ss2tf(a, b, c, d, iu) for systems with more than one input
 #' ss2tf(a, b, c, d)
-#' ss2tf(a, b, c, d, iu) for systems with more than one input
+#' ss2tf(sys)
+#' ss2tf(sys, iu) for systems with more than one input
 #'
 #' @details
 #' \code{ss2tf} converts a model object in state-space form to transfer function model by calculating the transfer function of the system:

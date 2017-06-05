@@ -53,12 +53,6 @@ ss <- function (A, B, C, D, Ts = NULL) {
     err_msg <- paste("ss: ",response);
     stop(err_msg);
   }
-
-  if ( is.null(Ts) || Ts <= 0) {
-    cat("\n State-Space system: Continuous time model", "\n")
-  } else {
-    cat("\n State-Space system: Discrete time model", "\n")
-  }
   sys = list(A = A, B = B, C = C, D = D, Ts = Ts)
   class(sys) <- "ss"
   return(sys)
@@ -94,4 +88,10 @@ print.ss <- function (sys) {
   cat('sys.D =', '\n\n')
   print(D,print.gap = 3, right = TRUE)
   cat("   \n")
+
+  if ( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
+    cat("\n State-Space system: Continuous time model", "\n")
+  } else {
+    cat("\n State-Space system: Discrete time model", "\n")
+  }
 }

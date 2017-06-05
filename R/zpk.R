@@ -40,12 +40,6 @@ zpk <- function(zero, pole, gain, Ts=NULL) {
   } else {
     stop("zpk: zero, pole, gain must be vectors.")
   }
-
-  if( is.null(Ts) || Ts <= 0) {
-    cat("\n Zero-Pole-Gain: Continuous time model", "\n")
-  } else {
-    cat("\n Zero-Pole-Gain: Discrete time model", "\n")
-  }
   sys <- list(z = z, p = p, k = k, Ts = Ts)
   class(sys) <- "zpk"
   return(sys)
@@ -95,6 +89,11 @@ print.zpk <- function(sys) {
   }
   cat(sprintf("\n\n"))
 
+  if( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
+    cat(" Zero-Pole-Gain: Continuous time model", "\n")
+  } else {
+    cat(" Zero-Pole-Gain: Discrete time model", "\n")
+  }
 }
 
 

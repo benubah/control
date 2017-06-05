@@ -4,8 +4,8 @@
 \alias{tf2ss}
 \title{Transfer function model conversion to State-space model.}
 \usage{
-\code{tf2ss(sys)}
 tf2ss(num, den)
+tf2ss(sys)
 }
 \arguments{
 \item{num}{A numeric vector containing the coefficients of the}
@@ -21,7 +21,7 @@ Returns an object of 'ss' class.
 \code{tf2ss} converts the model for a transfer function to state-space representation
 }
 \details{
-\code{tf2ss} converts a model object for a transfer function, Where \code{num} is the numerator and \code{den} is the denominator
+\code{tf2ss} converts a model object for a transfer function to a state-space model, Where \code{num} is the numerator and \code{den} is the denominator
 of the transfer function and \code{sys} is a transfer function object
 }
 \examples{

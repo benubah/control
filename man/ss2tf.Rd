@@ -4,10 +4,10 @@
 \alias{ss2tf}
 \title{State-space model conversion to Transfer function model.}
 \usage{
+ss2tf(a, b, c, d, iu) for systems with more than one input
+ss2tf(a, b, c, d)
 ss2tf(sys)
 ss2tf(sys, iu) for systems with more than one input
-ss2tf(a, b, c, d)
-ss2tf(a, b, c, d, iu) for systems with more than one input
 }
 \arguments{
 \item{a}{An n x n matrix}

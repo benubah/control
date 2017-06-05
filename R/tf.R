@@ -29,13 +29,6 @@ tf <- function (num, den, Ts=NULL) {
     Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
     num1 <- Dum$numc
     den1 <- Dum$denc
-
-      if ( is.null(Ts) || Ts <= 0) {
-           cat("\nTransfer Function: Continuous time model", "\n\n")
-      } else {
-           cat("\nTransfer function: Discrete time model", "\n\n")
-      }
-
     sys <- list(num = num1, den = den1, Ts = Ts)
     class(sys) <- "tf"
     return(sys)
@@ -50,7 +43,7 @@ print.tf <- function ( sys ) {
   numlen <- nchar(numstr)
   denlen <- nchar(denstr)
   len <- max(numlen, denlen)
-
+  cat( sprintf("\n") )
   if (numlen < len) {
     center <- round( (len - numlen) / 2)
     cat(rep(" ", center), numstr, "\n")
@@ -68,4 +61,10 @@ print.tf <- function ( sys ) {
     cat("   ", denstr, "\n")
   }
   cat( sprintf("\n\n") )
+
+  if ( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
+    cat("Transfer Function: Continuous time model", "\n\n")
+  } else {
+    cat("Transfer function: Discrete time model", "\n\n")
+  }
 }

@@ -43,7 +43,6 @@ zp2tf <- function (z, p, k) {
     k <- sys$k
   }
 
-  num <- c()
   den <- Re( pracma::Poly( c(p) ) )
   den <- t(as.matrix(den))
 
@@ -53,6 +52,7 @@ zp2tf <- function (z, p, k) {
   den_cols <- ncol(den)
   gain_rows <- nrow(k)
   gain_cols <- ncol(k)
+
 
   if (is.null(z)) {
     num <- cbind(matrix(0, gain_rows, (den_cols-1) ), k)
@@ -65,14 +65,19 @@ zp2tf <- function (z, p, k) {
     }
     stop("k must have as many elements as the columns of z.")
   }
+
+  #num <- c()
+  #print(n)
   for (i in 1:n) {
     zj <- z[, i]
     pj <- Re( pracma::Poly(zj) * k[i] )
     pj <- t( as.matrix(pj) )
+
     if (den_cols - length(pj) == 0) {
       num <- pj
     } else {
-      num[i, ] <- rbind( rep(0, den_cols - length(pj) ), pj)
+      num <- matrix(0,n,length(cbind( rep(0, den_cols - length(pj) ), pj)))
+      num[i,] <- cbind( rep(0, den_cols - length(pj) ), pj)
     }
   }
   sys1 <- tf(num, den)

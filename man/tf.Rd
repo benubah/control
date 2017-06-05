@@ -7,9 +7,9 @@
 tf(num, den, Ts = NULL)
 }
 \arguments{
-\item{num}{A numeric vector}
+\item{num}{A numeric vector or matrix (for multivariable systems)}
 
-\item{den}{A numeric vector}
+\item{den}{A numeric vector or matrix (for multivariable systems)}
 
 \item{Ts}{Sample time for discrete time systems}
 }
@@ -28,6 +28,11 @@ tf(1, c(1,2,1))
 sys1 <- tf(1, c(1,2,1))
 sys1$num
 sys1$den
+
+# for multivariable systems (experimental) - each row for a system
+num = rbind(c(0,1,1), c(1,0,1))
+den = rbind(c(1,3,2), c(2,4,2))
+tf(num, den)
 
 }
 \seealso{

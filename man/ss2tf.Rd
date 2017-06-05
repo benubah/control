@@ -41,6 +41,11 @@ ss2tf(sys2)
 ## OR
 ss2tf(sys2$A,sys2$B,sys2$C,sys2$D)
 
+# a multiple output system
+A <- rbind(c(0,1), c(-10000,-4)); B <- rbind(0,1); C <- rbind(c(1,0), c(0,1));
+D <- rbind(0,0);
+ss2tf(A, B, C, D)
+
 }
 \seealso{
 \code{\link{tf2ss}} \code{\link{ss2zp}}

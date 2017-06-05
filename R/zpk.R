@@ -33,13 +33,19 @@ zpk <- function(zero, pole, gain, Ts=NULL) {
     z <- as.matrix(zero)
     p <- as.matrix(pole)
     k <- as.matrix(gain)
-  } else if ((is.null(zero) || length(zero)==0) && is.vector(pole) && is.vector(gain)) {
-    z <- NULL;
+  }
+  if ((is.null(zero) || length(zero)==0) && is.vector(pole) && is.vector(gain)) {
+    z <- NULL
     p <- as.matrix(pole)
     k <- as.matrix(gain)
-  } else {
-    stop("zpk: zero, pole, gain must be vectors.")
   }
+  if ( is.matrix(zero) && is.matrix(pole) && is.matrix(gain) ) {
+    z <- zero
+    p <- pole
+    k <- gain
+  }
+    #stop("zpk: zero, pole, gain must be vectors.")
+
   sys <- list(z = z, p = p, k = k, Ts = Ts)
   class(sys) <- "zpk"
   return(sys)

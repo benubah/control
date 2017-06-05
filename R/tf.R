@@ -8,8 +8,8 @@
 #' of the transfer function.
 #'
 #'
-#' @param num   A numeric vector
-#' @param den   A numeric vector
+#' @param num   A numeric vector or matrix (for multivariable systems)
+#' @param den   A numeric vector or matrix (for multivariable systems)
 #' @param Ts Sample time for discrete time systems
 #'
 #' @return Returns an object of 'tf' class list with a proper transfer function or with warnings when not proper.
@@ -22,13 +22,30 @@
 #' sys1$num
 #' sys1$den
 #'
+#' # for multivariable systems (experimental) - each row for a system
+#' num = rbind(c(0,1,1), c(1,0,1))
+#' den = rbind(c(1,3,2), c(2,4,2))
+#' tf(num, den)
+#'
 #' @export
 
 tf <- function (num, den, Ts=NULL) {
+    # single variable systems
+    if (is.vector(num) && is.vector(den)) {
+      Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
+      num1 <- Dum$numc
+      den1 <- Dum$denc
+    }
 
+    if (is.matrix(num) && nrow(num) == 1) {
     Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
     num1 <- Dum$numc
     den1 <- Dum$denc
+    #multivariable systems
+    } else if (is.matrix(num) && nrow(num) > 1){
+      num1 <- num
+      den1 <- den
+    }
     sys <- list(num = num1, den = den1, Ts = Ts)
     class(sys) <- "tf"
     return(sys)
@@ -36,8 +53,17 @@ tf <- function (num, den, Ts=NULL) {
 
 #' @export
 print.tf <- function ( sys ) {
-  argnum <- c(sys$num)
-  argden <- c(sys$den)
+
+  cat(sprintf("\n"))
+  for (i in 1:nrow(sys$num)){
+    cat(paste("y",i,":"))
+    argnum <- c(sys$num[i,])
+
+  if (nrow(sys$den) == 1 ) {
+    argden <- c(sys$den)
+  } else if(nrow(sys$den) > 1) {
+    argden <- c(sys$den[i,])
+  }
   numstr <- poly2str(argnum, svar = "s", smul = " ")
   denstr <- poly2str(argden, svar = "s", smul = " ")
   numlen <- nchar(numstr)
@@ -58,9 +84,11 @@ print.tf <- function ( sys ) {
     center <- round((len - denlen) / 2)
     cat(rep(" ", center), denstr, "\n")
   } else {
-    cat("   ", denstr, "\n")
+    cat("   ", denstr, "\n\n")
   }
-  cat( sprintf("\n\n") )
+
+  }
+  cat( sprintf("\n") )
 
   if ( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
     cat("Transfer Function: Continuous time model", "\n\n")

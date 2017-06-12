@@ -22,9 +22,9 @@
 #' sys1$num
 #' sys1$den
 #'
-#' # for multivariable systems (experimental) - each row for a system
+#' # for single-input multi-output systems (SIMO) each numerator row for one output.
 #' num = rbind(c(0,1,1), c(1,0,1))
-#' den = rbind(c(1,3,2), c(2,4,2))
+#' den = rbind(c(1,3,2))
 #' tf(num, den)
 #'
 #' @export
@@ -41,7 +41,7 @@ tf <- function (num, den, Ts=NULL) {
     Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
     num1 <- Dum$numc
     den1 <- Dum$denc
-    #multivariable systems
+    #multiple output systems
     } else if (is.matrix(num) && nrow(num) > 1){
       num1 <- num
       den1 <- den

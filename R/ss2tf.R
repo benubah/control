@@ -19,7 +19,9 @@
 #' @param b An n x m matrix
 #' @param c An p x n matrix
 #' @param d An p x m matrix
-#' @param iu A numeric vector denoting number of inputs. default value is 1.
+#' @param iu A numeric value denoting number of inputs. default value is 1.For example, if the system
+#' has three inputs (u1, u2, u3), then iu must be either 1, 2, or 3, where 1 implies u1, 2
+#' implies u2, and 3 implies u3.
 #'
 #' @return Returns an object of 'tf' class containing \code{num} and \code{den}. The numerator coefficients
 #' are returned in matrix num with as many rows as outputs y.
@@ -32,14 +34,20 @@
 #' ## OR
 #' ss2tf(sys2$A,sys2$B,sys2$C,sys2$D)
 #'
-#' # a multiple output system
+#' # a single input multiple output system
 #' A <- rbind(c(0,1), c(-10000,-4)); B <- rbind(0,1); C <- rbind(c(1,0), c(0,1));
-#' D <- rbind(0,0);
+#' D <- rbind(0,0)
 #' ss2tf(A, B, C, D)
+#'
+#' # a MIMO system
+#' A = rbind(c(0,1), c(-25,-4)); B = rbind(c(1,1), c(0,1));
+#' C = rbind(c(1,0), c(0,1)); D = rbind(c(0,0), c(0,0))
+#' ss2tf(A,B,C,D,1) # to obtain output for input 1
+#' ss2tf(A,B,C,D,2) # to obtain output for input 2
 #'
 #' @export
 
-ss2tf <- function(a, b, c, d, iu) {
+ss2tf <- function(a, b, c, d, iu = 1) {
   if (nargs() == 1 || nargs() == 2)  {
     sys_tmp <- a
 
@@ -72,6 +80,11 @@ ss2tf <- function(a, b, c, d, iu) {
       stop("Specify iu for systems with more than one input.");
     }
   }
+
+  if (d_cols <= 1 && iu > 1){
+    stop("The system does not have more than one input. iu should be 1.")
+  }
+
   den <- pracma::Poly(a);
   den <- t(as.matrix(den))
   if (!is.null(b)) {

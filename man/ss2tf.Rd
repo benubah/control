@@ -18,7 +18,9 @@ ss2tf(sys, iu) for systems with more than one input
 
 \item{d}{An p x m matrix}
 
-\item{iu}{A numeric vector denoting number of inputs. default value is 1.}
+\item{iu}{A numeric value denoting number of inputs. default value is 1.For example, if the system
+has three inputs (u1, u2, u3), then iu must be either 1, 2, or 3, where 1 implies u1, 2
+implies u2, and 3 implies u3.}
 
 \item{sys}{An object of state-space class}
 }
@@ -41,10 +43,16 @@ ss2tf(sys2)
 ## OR
 ss2tf(sys2$A,sys2$B,sys2$C,sys2$D)
 
-# a multiple output system
+# a single input multiple output system
 A <- rbind(c(0,1), c(-10000,-4)); B <- rbind(0,1); C <- rbind(c(1,0), c(0,1));
-D <- rbind(0,0);
+D <- rbind(0,0)
 ss2tf(A, B, C, D)
+
+# a MIMO system
+A = rbind(c(0,1), c(-25,-4)); B = rbind(c(1,1), c(0,1));
+C = rbind(c(1,0), c(0,1)); D = rbind(c(0,0), c(0,0))
+ss2tf(A,B,C,D,1) # to obtain output for input 1
+ss2tf(A,B,C,D,2) # to obtain output for input 2
 
 }
 \seealso{

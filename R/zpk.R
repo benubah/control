@@ -56,14 +56,21 @@ print.zpk <- function(sys) {
   if(class(sys) != 'zpk'){
     stop("print.zpk: sys must be a zpk object!")
   }
-  if (is.null(sys$z) || length(sys$z) == 0) {
+  #print(length(sys$k))
+  for (i in 1:length(sys$k)){
+    cat(paste("y",i,":"))
+  if (is.null(sys$z[i]) || length(sys$z[i]) == 0) {
     numstr <- " "
   } else {
-    if (!is.complex(sys$z)) {
-      numstr <- paste("(s", sprintf("%+g",sys$z), ")", sep="")
-    } else if (is.complex(sys$z)) {
-      numstr <- paste("(s", sprintf("%+g%+g%s",Re(sys$z), Im(sys$z), "j"), ")", sep="")
+
+    if (!is.complex(sys$z[i])) {
+      ztmp <- ifelse (sys$z[i] != 0, sys$z[i], NA)
+      z2 <- na.omit(ztmp)
+      numstr <- paste("(", sprintf("s%+g", z2), ")", sep="")
+    } else if (is.complex(sys$z[i])) {
+      numstr <- paste("(s", sprintf("%+g%+g%s",Re(sys$z[i]), Im(sys$z[i]), "j"), ")", sep="")
     }
+
   }
 
   if (!is.complex(sys$p)) {
@@ -72,7 +79,7 @@ print.zpk <- function(sys) {
     denstr <- paste("(s", sprintf("%+2g%+2g%s", Re(sys$p), Im(sys$p), "j"),  ")", sep="")
   }
 
-  numstr <- paste(c(sys$k,numstr), collapse = " ")
+  numstr <- paste(c(sys$k[i],numstr), collapse = " ")
   numlen <- nchar(numstr)
   denlen <- nchar(denstr)
   numlen <- sum(numlen)
@@ -94,6 +101,8 @@ print.zpk <- function(sys) {
     cat("   ", denstr, "\n")
   }
   cat(sprintf("\n\n"))
+
+  }
 
   if( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
     cat(" Zero-Pole-Gain: Continuous time model", "\n")

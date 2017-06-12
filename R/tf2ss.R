@@ -43,9 +43,22 @@ tf2ss <- function(num, den) {
       }
   }
 
-  dumsys <- tfchk(matrix(num,nrow = 1),matrix(den,nrow = 1))
-  num <- dumsys$numc
-  den <- dumsys$denc
+  # single variable systems
+  if (is.vector(num) && is.vector(den)) {
+    Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
+    num <- Dum$numc
+    den <- Dum$denc
+  }
+
+  if (is.matrix(num) && nrow(num) == 1) {
+    Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
+    num <- Dum$numc
+    den <- Dum$denc
+    #multiple output systems
+  } else if (is.matrix(num) && nrow(num) > 1){
+    num <- num
+    den <- den
+  }
 
   tmpden <- den
   den_rows <- nrow(den)

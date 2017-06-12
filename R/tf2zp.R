@@ -40,9 +40,22 @@ tf2zp <- function (num, den) {
       stop("TF2ZP: sys should be a transfer function model")
     }
   }
-  dumsys <- tfchk(matrix(num,nrow = 1),matrix(den,nrow = 1))
-  num <- dumsys$numc
-  den <- dumsys$denc
+  # single variable systems
+  if (is.vector(num) && is.vector(den)) {
+    Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
+    num <- Dum$numc
+    den <- Dum$denc
+  }
+
+  if (is.matrix(num) && nrow(num) == 1) {
+    Dum <- tfchk(matrix(num, nrow = 1), matrix(den, nrow = 1))
+    num <- Dum$numc
+    den <- Dum$denc
+    #multiple output systems
+  } else if (is.matrix(num) && nrow(num) > 1){
+    num <- num
+    den <- den
+  }
 
   if ( length(den) ) {
     lead_coeff <- den[1]
@@ -62,10 +75,12 @@ tf2zp <- function (num, den) {
   }
   num_rows <- nrow(num)
   num_cols <- ncol(num)
+
   p  <- pracma::roots(c(den))
   p <- as.matrix(p)
 
-  z <- Inf * matrix(1, num_cols-1, num_rows)
+  z <-  Inf * matrix(1, num_cols-1, num_rows)
+
   k <- matrix(0, num_rows, 1)
   for (i in 1:num_rows) {
     zz <- pracma::roots(num[i, ])
@@ -76,6 +91,14 @@ tf2zp <- function (num, den) {
     if (length(idx)) {
       k[i, 1] <- num[i, idx[1]]
     }
+  }
+
+  if (any(is.infinite(z))) {
+    warning("Infs found in zeros. Replacing them with NA. For further computations, Use NULL instead of NA ")
+  }
+
+  if (ncol(z) > 1){
+  z <- ifelse(z != Inf, z, matrix(0,0,1)) #CLEAN OUT INFs
   }
   sys1 <- list(z = z, p = p, k = k)
   class(sys1) <- 'zpk'

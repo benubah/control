@@ -1,47 +1,44 @@
+#' @title Convert Zero-Pole-Gain Model to State-Space Model
+#'
+#' @description
+#' \code{zp2ss} converts a system represented in zero-pole form to state-space
+#'
+#' @usage zp2ss(z,p,k)
+#' zp2ss(sys)
+#'
+#' @details
+#' \code{zp2ss} converts a system represented in zero-pole form to state-space by converting from zero-pole to transfer function and from transfer functon to state-space
+#'
+#'
+#' @param zero      A vector or single row matrix
+#' @param pole      A vector or single row matrix
+#' @param gain      A vector
+#'
+#' @return Returns a list object of 'ss' class.
+#'
+#' @seealso \code{\link{ss2zp}} \code{\link{zp2tf}}
+#'
+#' @examples
+#' zp2ss(NULL, c(-1,-1), 1)
+#' zp2ss(tf2zp(c(1,1,1), c(1,2,1)))
+#'
+#' @export
 
-###Zero-pole-gain representation to state-space representation
-#    Parameters
-#    ----------
-#    z, p :    Zeros and poles.
-#    k :       System gain.
-#    Returns
-#    -------
-#    A, B, C, D : ndarray
-#        State space representation of the system, in controller canonical
-#        form.
-###
-
-#INSPIRED FROM SCIPY - https://github.com/scipy/scipy/blob/master/scipy/signal/lti_conversion.py
-
-#NOT FULLY TESTED YET
-# sys4$z <- NULL
-# sys4$p <- as.matrix(c(-1,-1))
-# sys4$k <- as.matrix(1)
-#But test with zp2ss(sys4$z, sys4$p, sys4$k)
-# zp2ss(tf2zp(c(1,1,1), c(1,2,1)))
 zp2ss <- function(z, p, k) {
 
   if (nargs() == 1)  {
     sys <- z
     if( class(sys) == 'zpk') {
-      #sys <- unclass(sys_tmp)
-      z <- sys$z
-      p <- sys$p
-      k <- sys$k
+      sys_tf <- zp2tf(sys)
+      sys_ss<- tf2ss(sys_tf)
     } else {
       stop("ZP2TF: sys should be a Zero-Pole-Gain model")
     }
-  } else if (nargs() == 3){
-    sys <- zpk(z, p, k)
-    z <- sys$z
-    p <- sys$p
-    k <- sys$k
   }
-
-
-  sys_tf <- zp2tf(z, p, k)
-  sys_ss<- tf2ss(sys_tf)
-
+  if (nargs() == 3){
+    sys <- zpk(z, p, k)
+    sys_tf <- zp2tf(sys)
+    sys_ss<- tf2ss(sys_tf)
+  }
   return(sys_ss)
-
 }

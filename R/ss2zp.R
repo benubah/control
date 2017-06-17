@@ -53,14 +53,8 @@ ss2zp <- function (a, b, c, d, iu = 1) {
     }
   }
 
-  if ( nargs() == 4) {
-    if (ncol(d) <= 1) {
-      iu <- 1
-    } else {
-      stop("Specify iu for systems with more than one input.");
-    }
-  }
-  sys_tf <- ss2tf(a, b, c, d, iu)
+
+  sys_tf <- ss2tf(ss(a, b, c, d), iu)
   sys_zp <- tf2zp(sys_tf)
   return(sys_zp)
 }

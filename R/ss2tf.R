@@ -45,6 +45,14 @@
 #' ss2tf(A,B,C,D,1) # to obtain output for input 1
 #' ss2tf(A,B,C,D,2) # to obtain output for input 2
 #'
+#' ## OR
+#'
+#' systems <- vector("list", ncol(D))
+#' for(i in 1:ncol(D)){ systems[[i]] <- ss2tf(A,B,C,D,i) }
+#' systems
+#' systems[[1]]
+#' systems[[2]]
+#'
 #' @export
 
 ss2tf <- function(a, b, c, d, iu = 1) {

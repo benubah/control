@@ -89,9 +89,10 @@ print.ss <- function (sys) {
   print(D,print.gap = 3, right = TRUE)
   cat("   \n")
 
-  if ( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
+  if ( is.null(sys$Ts) || sys$Ts <= 0) {
     cat("\n State-Space system: Continuous time model", "\n")
   } else {
-    cat("\n State-Space system: Discrete time model", "\n")
+    cat("Sample Time =", sys$Ts, "\n")
+    cat("State-Space system: Discrete time model", "\n\n")
   }
 }

@@ -58,7 +58,7 @@ print.zpk <- function(sys) {
   }
   #print(length(sys$k))
   for (i in 1:length(sys$k)){
-    cat(paste("y",i,":"))
+    cat(paste("y",i,":", sep = ''))
   if (is.null(sys$z[i]) || length(sys$z[i]) == 0) {
     numstr <- " "
   } else {
@@ -104,10 +104,11 @@ print.zpk <- function(sys) {
 
   }
 
-  if( is.null(sys$Ts) || sys$Ts <= 0 || !exists("sys$Ts")) {
+  if ( is.null(sys$Ts) || sys$Ts <= 0) {
     cat(" Zero-Pole-Gain: Continuous time model", "\n")
   } else {
-    cat(" Zero-Pole-Gain: Discrete time model", "\n")
+    cat("Sample Time =", sys$Ts, "\n")
+    cat("Zero-Pole-Gain: Discrete time model", "\n\n")
   }
 }
 

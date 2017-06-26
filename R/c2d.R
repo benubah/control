@@ -8,7 +8,8 @@
 #'
 #' @details
 #' \code{c2d} converts the continuous-time system: x = Ax + Bu
-#' to the discrete-time state-space system: x[n+1] = Phi * x[n] + Gamma * u[n]
+#' to the discrete-time state-space system: x[n+1] = Phi * x[n] + Gamma * u[n] based on the method
+#' of assuming a zero-order hold on the inputs and sample time
 #' Transfer function and zero-pole systems are converted to state-space representation before
 #' conversion to discrete-time.
 #'

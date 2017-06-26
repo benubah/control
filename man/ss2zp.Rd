@@ -5,9 +5,9 @@
 \title{State-space representation to zero-pole-gain representation}
 \usage{
 ss2zp(a,b,c,d)
-ss2zp(a,b,c,d,iu) #for SIMO systems
+ss2zp(a,b,c,d,iu) #for MIMO systems
 ss2zp(sys)
-ss2zp(sys, iu) for SIMO systems
+ss2zp(sys, iu) for MIMO systems
 }
 \arguments{
 \item{a}{An n x n matrix}

@@ -9,10 +9,14 @@ gensig(signal, tau, tfinal, tsam)
 }
 \arguments{
 \item{signal}{A string input containing either values of: \code{square, sin, cos, pulse} in the following format:
-'sq' or 'square' - Square wave
-'si' or 'sine'  -  Sine wave
-'co' or 'cos' -  Cosine wave
-'pu' or 'pulse' -  Periodic pulse}
+
+                   'sq' or 'square' - Square wave
+
+                   'si' or 'sine'  -  Sine wave
+
+                   'co' or 'cos' -  Cosine wave
+
+                   'pu' or 'pulse' -  Periodic pulse}
 
 \item{tau}{Duration of one period in seconds. Default is 5}
 

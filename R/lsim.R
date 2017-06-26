@@ -12,6 +12,7 @@
 #'
 #' @details
 #' \code{lsim(sys, u, t)} provides the time history of the linear system with zero-initial conditions.
+#'
 #'  \code{lsim(sys, u, t, x0)} provides the time history of the linear system with initial conditions.
 #'  If the linear system is represented as a model of \code{tf} or \code{zpk}
 #'  it is first converted to state-space before linear simulation is performed. This function depends on \code{c2d} and \code{ltitr}

@@ -10,10 +10,15 @@
 #'
 #'
 #' @param signal      A string input containing either values of: \code{square, sin, cos, pulse} in the following format:
+#'
 #'                    'sq' or 'square' - Square wave
+#'
 #'                    'si' or 'sine'  -  Sine wave
+#'
 #'                    'co' or 'cos' -  Cosine wave
+#'
 #'                    'pu' or 'pulse' -  Periodic pulse
+#'
 #' @param tau         Duration of one period in seconds. Default is 5
 #' @param tfinal     Duration of the signal in seconds. Default is 30
 #' @param tsam       sampling time in seconds. Default is 0.01

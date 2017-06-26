@@ -59,13 +59,12 @@ c2d <- function (sys, t) {
   if (errmsg != "") {
     print(errmsg)
   }
-  n <- ncol(a)
-  nb <- ncol(b)
-  m <- rbind( (cbind(a, b) * t ), matrix(0, nb, n + nb) )
-  s <- expm::expm(m)
-  phi <- s[1:n, 1:n, drop = FALSE]
-  gamma <- s[1:n, (n + 1):(n + nb), drop = FALSE]
-
+  a_cols <- ncol(a)
+  b_cols <- ncol(b)
+  mat1 <- rbind( (cbind(a, b) * t ), matrix(0, b_cols, a_cols + b_cols) )
+  smat <- expm::expm(mat1)
+  phi <- smat[1:a_cols, 1:a_cols, drop = FALSE]
+  gamma <- smat[1:a_cols, (a_cols + 1):(a_cols + b_cols), drop = FALSE]
   ad <- phi
   bd <- gamma
 

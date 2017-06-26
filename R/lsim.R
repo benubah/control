@@ -3,7 +3,7 @@
 #' @description
 #' \code{lsim} Computes the time response of a Linear system described by:
 #'  \deqn{x = Ax + Bu}
-#'   \deqn{ y = Cx + Du}
+#'  \deqn{ y = Cx + Du}
 #'  to the input time history \code{u}.
 #'
 #' @usage lsim(sys, u, t)

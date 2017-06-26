@@ -25,7 +25,7 @@ Returns a list of two matrices, \code{x} and \code{y}. The \code{x} values are r
 \description{
 \code{lsim} Computes the time response of a Linear system described by:
  \deqn{x = Ax + Bu}
-  \deqn{ y = Cx + Du}
+ \deqn{ y = Cx + Du}
  to the input time history \code{u}.
 }
 \details{

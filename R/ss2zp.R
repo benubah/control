@@ -4,9 +4,9 @@
 #' \code{ss2zp} converts a system represented in state-space form to zero-pole-gain model
 #'
 #' @usage ss2zp(a,b,c,d)
-#' ss2zp(a,b,c,d,iu) #for SIMO systems
+#' ss2zp(a,b,c,d,iu) #for MIMO systems
 #' ss2zp(sys)
-#' ss2zp(sys, iu) for SIMO systems
+#' ss2zp(sys, iu) for MIMO systems
 #'
 #' @details
 #' \code{ss2zp} converts a system represented in zero-pole form to state-space by converting from zero-pole to transfer function and from transfer functon to state-space

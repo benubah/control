@@ -2,8 +2,8 @@
 #'
 #' @description
 #' \code{lsim} Computes the time response of a Linear system described by:
-#'  \deqn{x = Ax + Bu
-#'        y = Cx + Du}
+#'  \deqn{x = Ax + Bu}
+#'   \deqn{ y = Cx + Du}
 #'  to the input time history \code{u}.
 #'
 #' @usage lsim(sys, u, t)
@@ -11,8 +11,8 @@
 #'
 #'
 #' @details
-#' \code{lsim(sys, u, t)} provides the time history of a Linear system with zero-initial conditions.
-#'  \code{lsim(sys, u, t, x0)} provides the time history of a Linear system with initial conditions.
+#' \code{lsim(sys, u, t)} provides the time history of the linear system with zero-initial conditions.
+#'  \code{lsim(sys, u, t, x0)} provides the time history of the linear system with initial conditions.
 #'  If the linear system is represented as a model of \code{tf} or \code{zpk}
 #'  it is first converted to state-space before linear simulation is performed. This function depends on \code{c2d} and \code{ltitr}
 #'
@@ -20,22 +20,25 @@
 #' @param u      A row vector for single input systems. The input \code{u} must have as many rows as there are inputs
 #' in the system. Each column of U corresponds to a new time point. \code{u} could be generated using a signal generator
 #' like \code{gensig}
-#' @param t     time vector which must be regularly spaced
+#' @param t     time vector which must be regularly spaced. e.g. \code{seq(0,4,0.1)}
 #' @param x0    a vector of initial conditions with as many rows as the rows of \code{a}
 #'
 #' @return Returns a list of two matrices, \code{x} and \code{y}. The \code{x} values are returned from \code{ltitr}
 #'         call.
 #'
-#' @seealso \code{\link{ltitr}} \code{\link{lsimplot}}
+#' @seealso \code{\link{ltitr}}   \code{\link{lsimplot}}
 #'
 #' @examples
 #' signal <- gensig('square',4,10,0.1)
 #' H <- tf(c(2, 5, 1),c(1, 2, 3))
 #' response <- lsim(H, signal$u, signal$t)
-#' plot(signal$t, response$y, type = "l", main = "Linear Simulation Response", col = "blue"); lines(signal$t, signal$u, type = "l", col = "grey"); grid(5,5, col = "lightgray")
-#' ## based on example at: https://www.mathworks.com/help/ident/ref/lsim.html#btedhh0
+#' plot(signal$t, response$y, type = "l", main = "Linear Simulation Response", col = "blue")
+#' lines(signal$t, signal$u, type = "l", col = "grey")
+#' grid(5,5, col = "lightgray")
+#' ## based on example at: https://www.mathworks.com/help/ident/ref/lsim.html
+#'
 #' ## MIMO system response
-#' A <- rbind(c(0,1), c(-25,-4)); B <- rbind(c(1,1), c(0,1));
+#' A <- rbind(c(0,1), c(-25,-4)); B <- rbind(c(1,1), c(0,1))
 #' C <- rbind(c(1,0), c(0,1)); D <- rbind(c(0,0), c(0,0))
 #' response <- lsim(ss(A,B,C,D), cbind(signal$u, signal$u), signal$t)
 #' plot(signal$t, response$y[1,], type = "l", main = "Linear Simulation Response", col = "blue"); grid(7,7)

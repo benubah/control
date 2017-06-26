@@ -5,7 +5,8 @@
 # response <- lsim(H, signal$u, signal$t)
 # plot(signal$t, response$y, type = "l", main = "Linear Simulation Response", col = "blue"); lines(signal$t, signal$u, type = "l", col = "grey"); grid(5,5, col = "lightgray")
 #  Above Example obtained from: https://www.mathworks.com/help/control/ref/lsim.html
-
+#' @export
+#'
 gensig <- function(signal, tau=5, tfinal=30, tsam=0.01){
 
   if (!is.character(signal)) {

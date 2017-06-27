@@ -93,6 +93,9 @@ lsim <- function (sys, u, t, x0 = NULL) {
   } else {
     X0 <- x0
   }
+  if(is.vector(u)){
+    u <- as.matrix(u)
+  }
   if (ncol(u) != ncol(D)) {
     stop("LSIM: Input vector U must have same number of columns as system inputs")
   }

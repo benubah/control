@@ -9,3 +9,4 @@ Description: Solves control systems problems relating to frequency response, LTI
 License: GPL-2
 LazyData: TRUE
 RoxygenNote: 6.0.1
+Suggests: testthat

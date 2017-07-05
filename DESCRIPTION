@@ -1,7 +1,7 @@
 Package: control
 Type: Package
 Title: Control Systems Toolbox
-Version: 0.1.62
+Version: 0.1.63
 Author: Ben C. Ubah [aut, cre]
 Maintainer: Ben Ubah <ubah.ben22@gmail.com>
 Imports: pracma, expm

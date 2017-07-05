@@ -20,7 +20,7 @@
 #q=t(c)%*%c
 #r=3
 #care(a,b,q,r)
-
+#' @export
 care <- function(A, B, Q, R = 1) {
 
   eps <- .Machine$double.eps
@@ -74,7 +74,7 @@ care <- function(A, B, Q, R = 1) {
   U <- res$U
   X <- Re(U[(n+1):(n+n), 1:n]) %*% solve(Re(U[1:n, 1:n]))
   gain <- t(B) %*% solve(R) %*% X %*% E
-  L <- as.matrix(pracma::eig(( a - b %*% gain )))
+  L <- as.matrix(pracma::eig(( A - B %*% gain )))
 
   return(list(X = X, L = L, G = gain))
 }

@@ -6,7 +6,8 @@
 #      Givens rotation matrix.
 #	G <- givens_rot(a, b) returns the complex Givens rotation matrix
 #
-#----------------------------------------------------------------------
+#---------------------------------------------------------------------
+#' @export
 givens_rot <- function (a, b) {
   absa <- abs(a)
   if (absa == 0){

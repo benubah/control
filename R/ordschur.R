@@ -26,7 +26,7 @@
 #
 #----------------------------------------------------------------------
 
-
+#' @export
 ordschur <- function(Ui, Si,  idx) {
   n <- nrow(Si)
   if (nrow(Si) != ncol(Si)) {

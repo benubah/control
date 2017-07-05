@@ -22,10 +22,12 @@
 #
 # The results is a state-space model of the formed appended system
 #Example
-#sys1 = ss(1,2,3,4)
-#sys2 = ss(2,3,4,5)
-#sys3 = ss(6,7,8,9)
+#sys1 <- ss(1,2,3,4)
+#sys2 <- ss(2,3,4,5)
+#sys3 <- ss(6,7,8,9)
 #append(sys1, sys2, sys3)
+#sys4 <- tf(1, c(1,2,5))
+#append(sys1, sys2, sys4)
 
 #' @export
 append <- function (...) {

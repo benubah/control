@@ -27,6 +27,18 @@
 
 abcdchk <- function (a, b, c, d) {
 
+  if (nargs() == 1){
+    sys1 <- a
+    if (class(sys1) == 'ss') {
+      a <- sys1[[1]]
+      b <- sys1[[2]]
+      c <- sys1[[3]]
+      d <- sys1[[4]]
+    } else {
+      stop("ABCDCHK: sys should be state-space object")
+    }
+  }
+
   errmsg <- ""
   if (nrow(a) != ncol(a)) {
     errmsg <- "The A matrix must be square"

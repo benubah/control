@@ -21,11 +21,11 @@
 
 tfchk <- function (num, den) {
 
-  if ( !is.matrix(num) ) {
-    num <- matrix(num,nrow=1)
+  if ( is.vector(num) ) {
+    num <- matrix(num, nrow = 1)
   }
-  if ( !is.matrix(den) ) {
-    den <- matrix(den,nrow=1)
+  if ( is.vector(den) ) {
+    den <- matrix(den, nrow = 1)
   }
   if ( is.null(num) ) {
     print("TFCHK: Warning: Transfer function numerator should not be empty.\n")
@@ -45,9 +45,9 @@ tfchk <- function (num, den) {
   if ( ncol(num) <= ncol(den) ) {
     numc <- cbind( matrix(0, nrow(num), ncol(den) - ncol(num) ), num)
   } else {
-    numc <- matrix(num, nrow = 1)
+    numc <- num
   }
   denc <- den;
-  return (list(numc = numc, denc = denc));
+  return (list(numc = numc, denc = denc))
 }
 

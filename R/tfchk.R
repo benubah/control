@@ -28,10 +28,10 @@ tfchk <- function (num, den) {
     den <- matrix(den, nrow = 1)
   }
   if ( is.null(num) ) {
-    print("TFCHK: Warning: Transfer function numerator should not be empty.\n")
+    print("TFCHK: Warning: Transfer function numerator should not be empty.")
   }
   if ( is.null(den) ) {
-    print("TFCHK: Warning: Transfer function denominator should not be empty.\n")
+    print("TFCHK: Warning: Transfer function denominator should not be empty.")
   }
   if ( !( (nrow(den) == 1) || (ncol(den) == 1)) ) {
     stop("TFCHK: Denominator must be a row vector.")
@@ -47,7 +47,7 @@ tfchk <- function (num, den) {
   } else {
     numc <- num
   }
-  denc <- den;
+  denc <- den
   return (list(numc = numc, denc = denc))
 }
 

@@ -22,14 +22,10 @@
 #care(a,b,q,r)
 #' @export
 care <- function(A, B, Q, R = 1) {
-
   eps <- .Machine$double.eps
-  E <- pracma::eye(nrow(A));
-
   nr <- nrow(A)
   nc <- ncol(A)
   n  <- nr;
-
   if (nr != nc) {
     stop("A should be a square matrix")
   }
@@ -73,6 +69,7 @@ care <- function(A, B, Q, R = 1) {
   res <- ordschur(q, t, idx)
   U <- res$U
   X <- Re(U[(n+1):(n+n), 1:n]) %*% solve(Re(U[1:n, 1:n]))
+  E <- diag(1, nrow(A))
   gain <- t(B) %*% solve(R) %*% X %*% E
   L <- as.matrix(pracma::eig(( A - B %*% gain )))
 

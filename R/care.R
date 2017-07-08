@@ -4,13 +4,13 @@
 #
 # X <- care(A,B,Q)
 #
-# Algebraic Riccati Equation solution.
+# Continuous-time Algebraic Riccati Equation solution.
 # X <- care(A, B, Q, R) returns the stablizing solution (if it
 # exists) to the continuous-time Riccati equation:
 #
 #          A'*X + X*A − X*B*R^−1*B'*X + Q'*Q = 0
 #
-# G = R^-1 B'XE
+# G = R^-1 B'X*E
 # L = eig(a-b*g)
 
 #Example
@@ -47,7 +47,8 @@ care <- function(A, B, Q, R = 1) {
 
   var1 <- rbind(cbind(A, -G), cbind(-Q, t(-A)))
   val <- var1 * (1.0 + (eps * eps) * sqrt(as.complex(-1)))
-  tmp <- Matrix::Schur(val)
+  tmp <- Matrix::Schur(val) # coerces imaginary parts
+  #tmp <- qz.zgees(val) # schur decomposition from QZ package retaining imaginary parts
   q <- as.matrix(tmp$Q)
   t <- as.matrix(tmp$T)
   tol <- 10.0 * eps * max(abs(diag(t)))

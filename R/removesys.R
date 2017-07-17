@@ -19,6 +19,7 @@
 # D <- rbind(c(2,0), c(0,19))
 # removesys(sys1, 1,2) # removes input 1 and output 2
 
+#' @export
 removesys <- function (statesys, inputs, outputs, states) {
   errmsg <- abcdchk(statesys)
   if (errmsg != "") {

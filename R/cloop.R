@@ -53,11 +53,11 @@ cloop <- function(sys, e, f){
     return( tf(ac, bc) )
   }
   if (class(sys) == 'zpk') {
-    sys1 <- ssdata(sys)
+    sys_Zpk2SS <- ssdata(sys)
   }
-  if (class(sys) == 'ss' || exists("sys1"))  {
-    if (exists("sys1")) {
-      sys <- sys1
+  if (class(sys) == 'ss' || exists("sys_Zpk2SS"))  {
+    if (exists("sys_Zpk2SS")) {
+      sys <- sys_Zpk2SS
     }
    errmsg <- abcdchk(sys)
     if (errmsg != "") {

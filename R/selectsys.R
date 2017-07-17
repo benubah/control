@@ -22,6 +22,7 @@
 #  selectsys(sys1, 1:2, 2) # extract subsystem for only input 1 to 2 and output 2 to 2
 #  selectsys(sys1, 2, 2, 1:2) # extract subsystem for only input 2 and output 2 but states 1 to 2
 
+#' @export
 selectsys <- function(statesys, inputs, outputs, states) {
   errmsg <- abcdchk(statesys)
   if (errmsg != "") {

@@ -46,12 +46,13 @@ cloop <- function(sys, e, f){
       tfsys <- tfchk(sys$num, sys$den)
       num <- tfsys$numc
       den <- tfsys$denc
-      sgn <- e  # changed from sgn=sign(c) to sgn=c
+      sgn <- e  # changed from sgn <- sign(e) to sgn <- e
     }
     ac <- num
     bc <- den - sgn * num
     return( tf(ac, bc) )
   }
+
   if (class(sys) == 'zpk') {
     sys_Zpk2SS <- ssdata(sys)
   }
@@ -80,7 +81,7 @@ cloop <- function(sys, e, f){
       # sys with sign
       outputs <- 1:d_rows
       inputs  <- 1:d_cols
-      sgn <- sign(e) * matrix(rep(1, length(inputs)), 1, length(inputs))
+      sgn <- e * matrix(rep(1, length(inputs)), 1, length(inputs))
     }
     if (nargs() == 3) {
       # sys with selection vectors
@@ -103,6 +104,8 @@ cloop <- function(sys, e, f){
       for (i in 1:length(sgn)) {
         if (sgn[i] == -1) {
           Cout[i, ] <- -Cout[i, ]
+        } else {
+          Cout[i, ] <- sgn[i] * Cout[i, ]
         }
       }
       E <- diag(1, num_outputs, num_outputs) - Cout[ , (a_rows + inputs), drop = FALSE]

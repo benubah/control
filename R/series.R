@@ -39,8 +39,8 @@ series <- function (sys1, sys2, outputs, inputs) {
   if (class(sys1) == 'tf' && class(sys2) == 'tf') {
     csys1 <- tfchk(sys1$num, sys1$den)
     csys2 <- tfchk(sys2$num, sys2$den)
-    sysnum <- pracma::conv(c(csys1$numc), c(csys2$numc))
-    sysden <- pracma::conv(c(csys1$denc), c(csys2$denc))
+    sysnum <- pracma::polymul(c(csys1$numc), c(csys2$numc))
+    sysden <- pracma::polymul(c(csys1$denc), c(csys2$denc))
     return(tf(sysnum, sysden))
   } else {
       sys1 <- ssdata(sys1)

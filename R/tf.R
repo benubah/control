@@ -14,7 +14,7 @@
 #'
 #' @return Returns an object of 'tf' class list with a proper transfer function or with warnings when not proper.
 #'
-#' @seealso \code{\link{ss}} \code{\link{zpk}}
+#' @seealso \code{\link{ss}} \code{\link{zpk}} \code{\link{TF}} \code{\link{tf2ss}} \code{\link{tf2zp}}
 #'
 #' @examples
 #' tf(1, c(1,2,1))
@@ -27,6 +27,7 @@
 #' den = rbind(c(1,3,2))
 #' tf(num, den)
 #'
+#' @rdname tf
 #' @export
 
 tf <- function (num, den, Ts=NULL) {

@@ -36,5 +36,5 @@ tf(num, den)
 
 }
 \seealso{
-\code{\link{ss}} \code{\link{zpk}}
+\code{\link{ss}} \code{\link{zpk}} \code{\link{TF}} \code{\link{tf2ss}} \code{\link{tf2zp}}
 }

@@ -17,7 +17,7 @@ coefficients could then be retrieved from the object the same way as any other \
 \code{TF} Evaluates a given transfer function expression in the s-domain
 }
 \details{
-\code{TF} Evaluates a given transfer function algebraic expression in the s-domain.
+\code{TF} Evaluates a given transfer function polynomial expression in the s-domain.
 The evaluation of the expressions are performed similar to symbolic math computations for polynomials.
 A transfer function model is created as the result of the expression evaluation.
 Thus, this is an alternative way of creating transfer function models following the natural math expressions
@@ -35,7 +35,7 @@ K <- 1.0
 R <- 0.08
 L <- 1e-4
 P <- TF("K/(s*((J*s + b)*(L*s + R) + K^2))")
-Cls <- TF("5*P/(1 + 5*P)") # closed-loop connection
+Cls <- TF("P/(1 + P)") # closed-loop connection
 
 # More examples
 TF("s+1")

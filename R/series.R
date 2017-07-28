@@ -1,5 +1,33 @@
-#----------------------------------------------------------------------
-#
+#' @title Series Connection of two systems
+#'
+#' @description \code{series} connects two systems in the series block form below
+#'
+#'          u --->[System1]--->[System2]----> y
+#'
+#' @details  \code{seriessys <- series(sys1, sys2)} connects the two state-space systems in series such that the outputs of sys1
+#'	specified are connected to the inputs of sys2	specified by input2.
+#'  If sys1 and sys2 are both transfer functions,  \code{series(systf1, systf2)} produces the SISO system
+#'	in transfer function form obtained by connecting the two SISO
+#'	transfer function systems in series.
+#' If a system is not in state-space representation, the function
+#' tries to form a state-space representation for such system.
+#'
+#' @param sys1 LTI system object of tf, ss or zpk class
+#' @param sys2 LTI system object of tf, ss or zpk class
+#'
+#' @return The function returns a state-space model of the aggregate system with A, B, C, D matrices
+#'
+#' @seealso \code{\link{parallel}} \code{\link{feedback}} \code{\link{connect}}
+#'
+#' @examples
+#' series(tf(1, c(1,2,3)), tf(2, c(2,3,5)))
+#' sys2 = ss(1,2,3,4)
+#' sys3 = ss(6,7,8,9)
+#' series(sys2, sys3)
+#' series(tf(1, c(1,2,3)), ss(1,2,3,4))
+#'
+#' @export
+
 # series.R
 #
 # Syntax: seriessys <- series( sys1, sys2 )

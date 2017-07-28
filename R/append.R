@@ -1,35 +1,29 @@
-
-# append.R
-#
-# Usage: G <- append(sys1, sys2, sys3,...sysN)
-#
-#
-# This function appends the dynamics of n-state-space systems
-# together. It first combines the state-space matrices of two systems
-# defined by the follwing:
-#          .
-#         |x1| = |A1 0| |x1| + |B1 0| |u1|
-#         |x2|   |0 A2| |x2| + |0 B2| |u2|
-#
-#         |y1| = |C1 0| |x1| + |D1 0| |u1|
-#         |y2|   |0 C2| |x2| + |0 D2| |u2|
-#
-# where system "1" and system "2" are combined to formed the
-# appended system and so on for other systems. It calls the sysgroup.R
-# function to group the systems in consecutive pairs.
-# If the system is not in state-space representation, the function
-# tries to form a state-space representation.
-#
-# The results is a state-space model of the formed appended system
-#Example
-#sys1 <- ss(1,2,3,4)
-#sys2 <- ss(2,3,4,5)
-#sys3 <- ss(6,7,8,9)
-#append(sys1, sys2, sys3)
-#sys4 <- tf(1, c(1,2,5))
-#append(sys1, sys2, sys4)
-
+#' @title Append the dynamics of a set of systems
+#'
+#' @usage append(sys1, sys2, sys3, ..., sysN)
+#'
+#' @description \code{append} appends the dynamics of a set of n-state-space systems together
+#'
+#' @details  \code{append(sys1, sys2, sys3,...sysN)} first combines the the first two systems and then
+#' goes on to combine  the resulting state-space system to the next system and so forth.
+#' This is achieved by calling the \code{sysgroup(sys1, sys2)} at each iteration to group
+#' the systems in consecutive pairs until all systems are
+#' completely appended to form one system.
+#' If a system is not in state-space representation, the function
+#' tries to form a state-space representation for such system.
+#'
+#' @return The function returns a state-space model of the formed appended system with A, B, C, D matrices
+#'
+#' @examples
+#' sys1 <- ss(1,2,3,4)
+#' sys2 <- ss(2,3,4,5)
+#' sys3 <- ss(6,7,8,9)
+#' append(sys1, sys2, sys3)
+#' sys4 <- tf(1, c(1,2,5))
+#' append(sys1, sys2, sys4)
+#'
 #' @export
+
 append <- function (...) {
   args1 <- list(...)
   sys <- args1[[1]]

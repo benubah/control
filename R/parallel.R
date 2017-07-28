@@ -1,43 +1,49 @@
-#----------------------------------------------------------------------
-# parallel.R
+#' @title Parallel Connection of two systems
+#'
+#' @usage parallel(sys1, sys2)
+#' parallel(sys1, sys2, IN1, IN2, OUT1, OUT2)
+#'
+#' @description \code{parallel} connects two systems in the parallel block form below
+#'
+#'               |-->[System1]--|
+#            u-->+              0--->y
+#                |<--[System2]--|
 #
-# Usage: psys <-  parallel(sys1, sys2,in1, in2, out1, out2) {#
-#
-#	Parallel connection of two systems.
-#
-#                +-->[System1]--+
-#            u-->+              O--->y
-#                +-->[System2]--+
-#
-#	psys <-  parallel(sys1, sys2)  produces a state-
-#	space system consisting of the parallel connection of systems 1
-#	and 2 that connects all the inputs together and sums all the
-#	outputs of the two systems,  Y <- Y1 + Y2.
-#
-#	psys <-  parallel(sys1, sys2,IN1,IN2,OUT1,OUT2)
-#	connects the two systems in parallel such that the inputs
-#	specified by IN1 and IN2 are connected and the outputs specified
-#	by OUT1 and OUT2 are summed. The vectors IN1 and IN2 contain
-#	indexes into the input vectors of system 1 and system 2,
-#	respectively.  Similarly, the vectors OUT1 and OUT2 contain
-#	indexes into the outputs of the systems.  The parallel connection
-#	is performed by appending the two systems, summing the specified
-#	inputs and outputs, and removing the, now redundant, inputs and
-#	outputs of system 2.
-#
-#	If sys1 and sys2 are transfer functions, then parallel(sys1, sys2) produces a parallel
-#	connection of the two transfer function systems.
-#
-#	See also: feedback and series.
-#
-#Example:
-# sys2 = ss(1,2,3,4)
-# sys3 = ss(6,7,8,9)
-# parallel(sys2, sys3)
-# parallel(tf(1, c(1,2,3)), ss(1,2,3,4))
-# parallel(tf(1, c(1,2,3)),tf(2, c(3,2,3)))
-
+#' @details  \code{psys <-  parallel(sys1, sys2)} produces a state-
+#'	space system consisting of the parallel connection of sys1
+#'	and sys2 that connects all the inputs together and sums all the
+#'	outputs of the two systems.
+#'
+#'  The parallel connection
+#'	is performed by appending the two systems, summing the specified
+#'	inputs and outputs, and removing the, now redundant, inputs and
+#'	outputs of system 2.
+#'
+#'	If sys1 and sys2 are transfer functions, then parallel(sys1, sys2) produces a parallel
+#'	connection of the two transfer function systems.
+#'
+#'	\code{parallel(sys1, sys2,IN1,IN2,OUT1,OUT2)}
+#'	connects the two systems in parallel by connecting the inputs
+#'	specified by IN1 and IN2 and by summing the outputs specified
+#'	by OUT1 and OUT2. The vector IN1 contains
+#'	indexes into the input vectors of sys1 while, IN2 contains indexes for sys2,
+#'	. Vectors OUT1 and OUT2 contain	indexes for the outputs of the sys1 and sys2 respectively.
+#'
+#' @param sys1 LTI system object of tf, ss or zpk class
+#' @param sys2 LTI system object of tf, ss or zpk class
+#'
+#' @return The function returns a state-space model of the parallel-connected system with A, B, C, D matrices
+#'
+#' @seealso \code{\link{series}} \code{\link{feedback}} \code{\link{connect}}
+#'
+#' @examples
+#' sys2 = ss(1,2,3,4)
+#' sys3 = ss(6,7,8,9)
+#' parallel(sys2, sys3)
+#' parallel(tf(1, c(1,2,3)), ss(1,2,3,4))
+#' parallel(tf(1, c(1,2,3)),tf(2, c(3,2,3)))
 #' @export
+
 parallel <- function (sys1, sys2, in1, in2, out1, out2) {
 
   if (class(sys1) == 'tf' && class(sys2) == 'tf') {

@@ -28,40 +28,6 @@
 #'
 #' @export
 
-# series.R
-#
-# Syntax: seriessys <- series( sys1, sys2 )
-#         seriessys <- series( sys1, sys2 ,outputs1,inputs2)
-#
-#
-#	Series connection of two systems.
-#
-#		u --->[System1]--->[System2]----> y
-#
-#	seriessys <- series(sys1, sys2) produces an aggregate
-#	state-space system consisting of the series connection of systems
-#	1 and 2 that connects all the outputs of system 1 connected to
-#	all the inputs of system 2, u2 <- y1.  The resulting system has
-#	the inputs of system 1 and the outputs of system 2.
-#
-#	seriessys <- series(sys1, sys2, output1, input2)
-#	connects the two system in series such that the outputs of system
-#	1 specified by output1 are connected to the inputs of system 2
-#	specified by input2.
-# If sys1 and sys2 are both transfer functions,  series() produces the SISO system
-#	in transfer function form obtained by connecting the two SISO
-#	transfer function systems in series.
-#
-#	See also: append, parallel, feedback.
-#
-# Example:
-# series(tf(1, c(1,2,3)), tf(2, c(2,3,5)))
-# sys2 = ss(1,2,3,4)
-# sys3 = ss(6,7,8,9)
-# series(sys2, sys3)
-# series(tf(1, c(1,2,3)), ss(1,2,3,4))
-
-#' @export
 series <- function (sys1, sys2, outputs, inputs) {
 
   if (class(sys1) == 'tf' && class(sys2) == 'tf') {

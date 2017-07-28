@@ -21,6 +21,8 @@
 #'
 #' @return The function returns a state-space model of the formed appended system with A, B, C, D matrices
 #'
+#' @seealso \code{\link{series}} \code{\link{parallel}} \code{\link{feedback}} \code{\link{connect}}
+#'
 #' @examples
 #' sys1 <- ss(1,2,3,4)
 #' sys2 <- ss(2,3,4,5)
@@ -28,8 +30,6 @@
 #' append(sys1, sys2, sys3)
 #' sys4 <- tf(1, c(1,2,5))
 #' append(sys1, sys2, sys4)
-#'
-#' @seealso
 #'
 #' @export
 

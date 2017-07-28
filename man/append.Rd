@@ -40,5 +40,5 @@ append(sys1, sys2, sys4)
 
 }
 \seealso{
-
+\code{\link{series}} \code{\link{parallel}} \code{\link{feedback}} \code{\link{connect}}
 }

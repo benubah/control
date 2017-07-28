@@ -5,7 +5,8 @@
 #'
 #'
 #' @details
-#' \code{ctrb}  \code{ctrb(a, b)} returns the controllability matrix, ctrbmat = [B AB A^2B ...]
+#' \code{ctrb}  \code{ctrb(a, b)} returns the controllability matrix,  [B AB A^2B ... A^(n-1)B]. If the Controllability
+#' matrix has full row rank, the system is controllable.
 #'
 #' @param A   State matrix, A
 #' @param B   State matrix, B

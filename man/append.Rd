@@ -2,9 +2,15 @@
 % Please edit documentation in R/append.R
 \name{append}
 \alias{append}
+\alias{sysgroup}
 \title{Append the dynamics of a set of systems}
 \usage{
 append(sys1, sys2, sys3, ..., sysN)
+}
+\arguments{
+\item{sys1}{LTI system object of tf, ss or zpk class}
+
+\item{sys2}{LTI system object of tf, ss or zpk class}
 }
 \value{
 The function returns a state-space model of the formed appended system with A, B, C, D matrices
@@ -18,6 +24,9 @@ goes on to combine  the resulting state-space system to the next system and so f
 This is achieved by calling the \code{sysgroup(sys1, sys2)} at each iteration to group
 the systems in consecutive pairs until all systems are
 completely appended to form one system.
+
+\code{sysgroup(sys1, sys2)} appends only two systems
+
 If a system is not in state-space representation, the function
 tries to form a state-space representation for such system.
 }
@@ -28,5 +37,8 @@ sys3 <- ss(6,7,8,9)
 append(sys1, sys2, sys3)
 sys4 <- tf(1, c(1,2,5))
 append(sys1, sys2, sys4)
+
+}
+\seealso{
 
 }

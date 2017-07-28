@@ -18,7 +18,8 @@ Returns the controllability matrix.
 \code{ctrb} forms the controllability matrix.
 }
 \details{
-\code{ctrb}  \code{co <- ctrb(a, b)} returns the controllability matrix, co = [B AB A^2B ...]
+\code{ctrb}  \code{ctrb(a, b)} returns the controllability matrix,  [B AB A^2B ... A^(n-1)B]. If the Controllability
+matrix has full row rank, the system is controllable.
 }
 \examples{
 a1 <- rbind(c(0,0),c(1,-3))

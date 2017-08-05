@@ -51,9 +51,11 @@ parallel <- function (sys1, sys2, in1, in2, out1, out2) {
     csys2 <- tfchk(sys2$num, sys2$den)
     nn <- nrow(csys1$numc)
     mn <- ncol(csys1$numc)
+    #initialize num
+    num <- matrix(pracma::polymul(c(csys1$numc[1, ]), c(csys2$denc)), nrow = nn)
     for (k in 1:nn) {
-      num[k, ] <- pracma::polymul(csys1$numc[k, ], csys2$denc) + pracma::polymul(csys2$numc[k, ], csys1$denc)
-      den <- pracma::polymul(csys1$denc, csys2$denc)
+      num[k, ] <- pracma::polymul(c(csys1$numc[k, ]), c(csys2$denc) + pracma::polymul(c(csys2$numc[k, ]), c(csys1$denc)))
+      den <- pracma::polymul(c(csys1$denc), c(csys2$denc))
     }
     return(tf(num, den))
 

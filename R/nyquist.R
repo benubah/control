@@ -2,7 +2,8 @@
 
 # nyquist(tf(100, c(1,6,100)))
 # nyquist(ssdata(tf(100, c(1,6,100))))
-#require(signal)
+
+#' @export
 nyquist <- function(sys, w = seq(0, 100, length=10000), iu = 1){
   j <- sqrt(as.complex(-1))
 

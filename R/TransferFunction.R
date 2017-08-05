@@ -168,7 +168,7 @@ TF <- function (str_expr) {
         stop("Transfer Function: sys should be of class tf")
       }
     } else {
-      res <- pracma::polyadd(c(args[[1]]), -c(args[[2]]))
+      res <- polysub(c(args[[1]]), c(args[[2]]))
       return(res)
     }
   }
@@ -222,7 +222,7 @@ TF <- function (str_expr) {
       }
     } else {
       res <- pracma::polymul(args[[1]],args[[2]])
-      class(res) <- 'tf'
+      #class(res) <- 'tf'
       return(res)
     }
   }

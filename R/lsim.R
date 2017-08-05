@@ -83,7 +83,6 @@ lsim <- function (sys, u, t, x0 = NULL) {
 
   errmsg <- ""
   errmsg <- abcdchk(A, B, C, D)
-
   if (errmsg != "") {
     estring <- paste("lsim: ", errmsg)
     stop(estring)
@@ -109,6 +108,6 @@ lsim <- function (sys, u, t, x0 = NULL) {
   u <- t(u)
   x <- ltitr(Ad,Bd,u,X0)
   y <- C %*% x  + D %*% u
-  return( list(y = y, x = x) )
+  return( list(t = t, y = y, x = x) )
 }
 

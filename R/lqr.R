@@ -26,7 +26,7 @@
 #R = as.matrix(1)
 #Q = rbind(c(1,0), c(0,2))
 
-
+#' @export
 lqr <- function(a,b,q,r,s){
   # Convert data for linear-quadratic regulator problem to data for
   # the algebraic Riccati equation.

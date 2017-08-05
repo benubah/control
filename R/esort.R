@@ -13,7 +13,7 @@
 #    a$idx = index
 #
 #------------------------------------------------------------------------------
-
+#' @export
 esort <- function(p) {
   t <- sort(-Re(p), index.return = TRUE)
   return(list(s = p[t$ix], idx = t$ix))

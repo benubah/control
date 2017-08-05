@@ -12,7 +12,7 @@
 # C <- cbind(0,1); D <- as.matrix(0);
 # H <- freqresp(ss(A,B,C,D), w =  as.matrix(seq(0, 100, length=10000))*j)
 
-
+#' @export
 freqresp <- function(sys, w = seq(0, 100, length=10000), iu = 1) {
   if (class(sys) == 'tf') {
     H <- signal::freqs(c(sys$num), c(sys$den), w)

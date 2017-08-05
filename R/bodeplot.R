@@ -13,6 +13,7 @@
 # of sys1 for input 1 and output 2 only
 # RESET your plot layout using par(mfrow = c(1,1))
 
+#' @export
 bodeplot <- function(sys,  w = seq(0, 100, length=10000), iu = 1, subtitle = "In(1) Out(1)") {
  if (issiso(sys)) {
   resp <- bode(sys, w, iu)

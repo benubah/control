@@ -65,7 +65,7 @@ tf2ss <- function(num, den) {
   n    <- ncol(den)
 
   if ( ncol(den) == 0 && ncol(num) == 0 ) {
-    return( list( a = c(), b = c(), c = c(), d = c() ) )
+    return( ss( A = c(), B = c(), C = c(), D = c() ) )
   }
 
   idx <- which(den != 0)
@@ -96,7 +96,9 @@ tf2ss <- function(num, den) {
   }
 
   if (n == 1) {
-    return(list(a = c(), b = c(), c = c(), d = d))
+    syss <- list(A = as.matrix(0), B = as.matrix(0), C = as.matrix(0), D = d)
+    class(syss) <- 'ss'
+    return(syss)
   }
 
   den <- den[2:n] / den[1]

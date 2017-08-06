@@ -84,12 +84,23 @@ fdbcksys <- function(sys1, sys2, in1, out1) {
     csys1 <- tfchk(sys1$num, sys1$den)
     csys2 <- tfchk(sys2$num, sys2$den)
     sgn <- -1
-
+    #print(csys1$numc)
+    #print(csys2$numc)
+    #print(pracma::polymul(c(csys1$denc), c(csys2$denc)))
+    #print(sgn * pracma::polymul(c(csys1$numc),c(csys2$numc)))
     if (nargs() == 3) {
       sgn <- sign(in1)
     }
     sysnum <- pracma::polymul(c(csys1$numc), c(csys2$denc))
-    sysden <- pracma::polymul(c(csys1$denc), c(csys2$denc)) - sgn * pracma::polymul(c(csys1$numc),c(csys2$numc))
+    dentmp1 <- pracma::polymul(c(csys1$denc), c(csys2$denc))
+    dentmp2 <- sgn * pracma::polymul(c(csys1$numc),c(csys2$numc))
+    if ( length(dentmp1) < length(dentmp2) ) {
+      dentmp1 <- cbind( matrix(0, 1, length(dentmp2) - length(dentmp1) ), dentmp1)
+    }
+    if ( length(dentmp2) < length(dentmp1) ) {
+      dentmp2 <- c( rep(0, length(dentmp1) - length(dentmp2) ), dentmp2)
+    }
+    sysden <- dentmp1  - dentmp2
     return(tf(sysnum, sysden))
 
   } else {

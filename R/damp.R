@@ -27,16 +27,9 @@ damp <- function (sys, doPrint = TRUE) {
   }  else{
       stop("DAMP: sys must be of tf, ss or zpk class")
   }
-
-  # Compute the natural frequency on rad/s.
-  omegan=abs(eigvlsort)
-
-  omegan = as.matrix(omegan)
-
-  # Compute the damping factor
-  zeta=-cos(atan2(Im(eigvlsort),Re(eigvlsort)))
-
-  # Compute the natural frequency (Hz).
+  omegan <- abs(eigvlsort)
+  omegan <- as.matrix(omegan)
+  zeta <- -cos(atan2(Im(eigvlsort),Re(eigvlsort)))
   omegahz <- sqrt(eigvlsort)/(2.0*pi)
  if (doPrint) {
   cat(sprintf("\n"))

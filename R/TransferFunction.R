@@ -286,7 +286,7 @@ TF <- function (str_expr) {
 `^` <- function(...) {
     args <- list(...)
     res <- pracma::polypow(args[[1]],args[[2]])
-    class(res) <- 'tf'
+    #class(res) <- 'tf'
     return(res)
   }
   if (length(args1) > 0) {

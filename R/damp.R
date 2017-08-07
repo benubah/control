@@ -15,18 +15,18 @@
 #  zeta   = Damping Factors
 #
 
+#' @export
 damp <- function (sys, doPrint = TRUE) {
   # Compute the eigenvalues of the matrix and sort them
   if (class(sys) == 'ss') {
     eigvlsort <- esort(eigen(sys[[1]])$values)$s
-  } else if (class(sys) == 'tf') {
-    eigvlsort <- esort(pracma::roots(c(sys[[1]])))$s
-  }   else if (class(sys) == 'zpk') {
+  } else  if (class(sys) == 'tf') {
+    eigvlsort <- esort(pole(sys))$s
+  } else  if (class(sys) == 'zpk') {
     eigvlsort <- esort(sys$p)$s
-  }    else{
-    stop("DAMP: sys must be of tf, ss or zpk class")
+  }  else{
+      stop("DAMP: sys must be of tf, ss or zpk class")
   }
-
 
   # Compute the natural frequency on rad/s.
   omegan=abs(eigvlsort)

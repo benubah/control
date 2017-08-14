@@ -60,7 +60,6 @@ feedback <- function(sys1, sys2, in1, out1){
         res <- fdbcksys(tf(sys1, 1), tfdata(sys2))
         res <- ssdata(res)
       }
-      #res <- cloop(-sys1, sys2)
     } else {
       res <- fdbcksys(sys1, sys2)
     }

@@ -1,11 +1,11 @@
 Package: control
 Type: Package
 Title: Control Systems Toolbox
-Version: 0.1.103
+Version: 0.1.114
 Author: Ben C. Ubah [aut, cre]
 Maintainer: Ben Ubah <ubah.ben22@gmail.com>
 Imports: pracma, expm, signal
-Description: Solves control systems problems relating to frequency response, LTI systems design and analysis, transfer function manipulations, and system conversion
+Description: Solves control systems problems relating to time/frequency response, LTI systems design and analysis, transfer function manipulations, and system conversion
 License: GPL-2
 LazyData: TRUE
 RoxygenNote: 6.0.1

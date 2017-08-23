@@ -22,7 +22,7 @@ stepplot(sys, t, input)
        response from input 1, 2, and 3 to the outputs. For single input systems, \code{input} is always
        set to 1.
 
-       For calls to \code{stepplot}, \code{input} is a vector or range for MIMO system. E.g \code{input <- 1:3} for a system with 3-inputs}
+       For calls to \code{stepplot}, \code{input} is a vector or range for a MIMO state-space system. For example, \code{input <- 1:3} for a system with 3-inputs}
 }
 \value{
 A list is returned by calling \code{step} containing:
@@ -31,7 +31,7 @@ A list is returned by calling \code{step} containing:
 
 \code{y} Response of the system
 
-\code{y} Time vector
+\code{t} Time vector
 
 The matrix \code{y} has as many rows as there are outputs, and columns of the same size of \code{length(t)}.
 The matrix X has as many rows as there are states.  If the time
@@ -48,9 +48,9 @@ vector is returned as \code{t}
 \deqn{y = Cx + Du}
 }
 \details{
-\code{step} produces the time response of linear systems using \code{lsim}
+\code{step} produces the step response of linear systems using \code{lsim}
 
-\code{stepplot} produces the time response as a plot againts time.
+\code{stepplot} produces the step response as a plot againts time.
 
 The functions can handle both SISO and MIMO (state-space) models.
 }

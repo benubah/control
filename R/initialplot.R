@@ -16,7 +16,7 @@ initialplot <- function (sys, x0 = NULL, t = NULL) {
     plot(t, y, type = "l", lwd = 2, col = "blue", xlab = "Time, sec", ylab = paste("y"), main = "Initial response")
     grid(5, 5)
   } else {
-    par(mfrow = c(1, nrow(y)))
+    par(mfrow = c(nrow(y), 1))
     for (i in 1:nrow(y)) {
       plot(t, y[i, ], type = "l", lwd = 2, col = "blue", xlab = "Time, sec", ylab = paste("y", i), main = "Initial response")
       grid(5, 5)

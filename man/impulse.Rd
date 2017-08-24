@@ -41,11 +41,13 @@ vector is returned as \code{t}
   A plot of \code{y} vs \code{t} is returned by calling \code{impulseplot}
 }
 \description{
-\code{impulse} obtains the time response of the linear system:
+\code{impulse} obtains the impulse response of the linear system:
 
 \deqn{dx/dt =  Ax + Bu}
 
 \deqn{y = Cx + Du}
+
+to an impulse applied to the input
 }
 \details{
 \code{impulse} produces the impulse response of linear systems using \code{lsim}

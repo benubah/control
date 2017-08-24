@@ -9,11 +9,13 @@
 #' impulseplot(sys, t)
 #' impulseplot(sys, t, input)
 #'
-#' @description \code{impulse} obtains the time response of the linear system:
+#' @description \code{impulse} obtains the impulse response of the linear system:
 #'
 #'\deqn{dx/dt =  Ax + Bu}
 #'
 #'\deqn{y = Cx + Du}
+#'
+#'to an impulse applied to the input
 #'
 #' @details \code{impulse} produces the impulse response of linear systems using \code{lsim}
 #'

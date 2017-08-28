@@ -2,7 +2,7 @@
 
 The Control Systems Toolbox is an R library that implements basic operations for the design and analysis of control systems.
 
-This library started as a [Google Summer of Code project (2017)](https://summerofcode.withgoogle.com/projects/#5201658249216000) and was mentored by [Marijan Kostrun](https://github.com/mkostrun) and [Hans W Borchers](https://github.com/hwborchers). 
+This library started as a [Google Summer of Code project (2017)](https://summerofcode.withgoogle.com/projects/#5201658249216000) and was mentored by [Dr. H. Borchers](https://github.com/hwborchers) and [Dr. M. Kostrun](https://github.com/mkostrun). 
 
 
 ## Installation

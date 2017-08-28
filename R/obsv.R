@@ -3,16 +3,12 @@
 #' @description
 #' This function creates the observability matrix.
 #'
-#' @param A State matrix, A
-#' @param C State matrix, C
+#' @param A State-space matrix, A
+#' @param C State-space matrix, C
 #'
-#' @return  \code{obsv(A, C)} returns the observability matrix.
+#' @return  \code{obsv(A, C)} returns the observability matrix, \code{obsvm}.
 #' where
-#'      | C        |
-#'      | CA       |
-#'obsm =| CA^2     |
-#'      | ...      |
-#'      | CA^(n-1) |
+#'  obsvm =  | C CA CA^2 ... CA^(n-1) |
 #'
 #'@seealso \code{\link{ctrb}}
 #'

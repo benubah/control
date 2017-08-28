@@ -27,6 +27,11 @@ The package may be installed from this GitHub repository using `devtools` in the
 
 Most fundamental features of this toolbox were developed during the Google Summer of Code 2017 and a list of functions and activities produced during this summer could be found [here](https://github.com/benubah/controldev/blob/master/README.md).
 
+Google Summer of Code related articles for this project are:
+
+- [Control Systems Toolbox in R - a GSoC 2017 Project](https://rviews.rstudio.com/2017/07/06/control-systems-toolbox-in-r---a-gsoc-2017-project/)
+- [Control Systems Toolbox – System Interconnection](https://rviews.rstudio.com/2017/08/24/control-systems-toolbox/)
+
 ## Documentation
 
 All callable functions (including utilities) are documented and could be accessed within the R environment after installing the toolbox.

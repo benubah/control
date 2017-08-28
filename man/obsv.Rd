@@ -7,18 +7,14 @@
 obsv(A, C)
 }
 \arguments{
-\item{A}{State matrix, A}
+\item{A}{State-space matrix, A}
 
-\item{C}{State matrix, C}
+\item{C}{State-space matrix, C}
 }
 \value{
-\code{obsv(A, C)} returns the observability matrix.
+\code{obsv(A, C)} returns the observability matrix, \code{obsvm}.
 where
-     | C        |
-     | CA       |
-obsm =| CA^2     |
-     | ...      |
-     | CA^(n-1) |
+ obsvm =  | C CA CA^2 ... CA^(n-1) |
 }
 \description{
 This function creates the observability matrix.

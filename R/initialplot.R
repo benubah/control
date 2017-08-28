@@ -1,10 +1,4 @@
 
-# Example:
-# A <- rbind(c(-2, -1), c(1,0)); B <- rbind(1,0);
-#          C <- cbind(0,1); D <- as.matrix(0);
-# x0 <- matrix(c( 0.51297, 0.98127))
-# initialplot(ss(A,B,C,D), x0)
-
 #' @export
 initialplot <- function (sys, x0 = NULL, t = NULL) {
 

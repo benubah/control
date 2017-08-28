@@ -1,19 +1,24 @@
-#----------------------------------------------------------------------
-# freqresp.R
-#
-# Low level frequency response function.
-#
-#	G <- freqresp(sys, w, iu)
-#
-# w <- seq(0, 4, length = 128)
-# H=freqresp(as.matrix(c(1,1)), as.matrix(c(1,2,1)), as.matrix(w))
-# j <- sqrt(as.complex(-1))
-# A <- rbind(c(-2, -1), c(1,0)); B <- rbind(1,0);
-# C <- cbind(0,1); D <- as.matrix(0);
-# H <- freqresp(ss(A,B,C,D), w =  as.matrix(seq(0, 100, length=10000))*j)
-
+#' @title Low level frequency response function
+#'
+#' @description
+#' This function obtains the low level frequency response of a system.
+#'
+#' @param sys An LTI system of \code{tf}, \code{ss} and \code{zpk} class
+#' @param w   a vector of frequency points
+#' @param iu For calls to \code{freqresp}, \code{iu} is a number specifying an input for a MIMO state-space system. If the system has
+#'        3 inputs, then \code{iu} would be set to 1, set to 2 and then to 3 to obtain the step
+#'        response from input 1, 2, and 3 to the outputs
+#'
+#' @return  \code{freqresp(sys, w)} returns a vector of frequencies for \code{sys} in complex form
+#'
+#' @seealso \code{\link{bode}} \code{\link{nyquist}}
+#'
+#' @examples
+#' H <- freqresp(ssdata(tf(c(1,1), c(1,2,1))), (seq(0, 100, length = 10000)))
+#' H <- freqresp(tf(c(1,1), c(1,2,1)), seq(0, 100, length = 10000))
+#'
 #' @export
-freqresp <- function(sys, w = seq(0, 100, length=10000), iu = 1) {
+freqresp <- function(sys, w = seq(0, 100, length = 10000), iu = 1) {
   if (class(sys) == 'tf') {
     H <- signal::freqs(c(sys$num), c(sys$den), w)
       return(H$H)
@@ -25,17 +30,24 @@ freqresp <- function(sys, w = seq(0, 100, length=10000), iu = 1) {
     nu <- ncol(sys_ss$D)
     nx <- nrow(sys_ss$A)
     na <- ncol(sys_ss$A)
-    w <- as.matrix(w)
+    if(is.complex(w)) {
+      w <- as.matrix(w)
+    }
+    if(!is.complex(w)) {
+      j <- sqrt(as.complex(-1))
+      w <- w*j
+      w <- as.matrix(w)
+    }
     nw <- max(dim(w))
 
-    # Balance A
+    # Balance A matrix
     tmpmat <- expm::balance(sys_ss$A)
     t <- diag(tmpmat$scale)
     a <- tmpmat$z
     sys_ss$B <- solve(t, sys_ss$B)
     sys_ss$C <- sys_ss$C %*% t
 
-    # Reduce a to Hesenburg form then directly evaluate frequency response.
+    # Reduce a to Hesenburg form
     tmp <- pracma::hessenberg(a)
     p <- tmp$P
     a <- tmp$H
@@ -55,21 +67,27 @@ freqresp <- function(sys, w = seq(0, 100, length=10000), iu = 1) {
   return(g)
 }
 
-
-#
-# ltifr.R
-#
-# Usage: g <- ltifr(A,B,W)
-#
-# This function computes the Linear time-invariant frequency response
-# kernel. Calling the routine as ltifr(A,B,W) computes the frequency
-# response of the following system:
-#
-#    g(w) = (wI-A)\b
-#
-# for the complex frequencies contained in the vector W. The column
-# vector B must have as many rows as the matrix A.
-
+#' @title LTI frequency response kernel
+#'
+#' @description
+#' This function computes the frequency
+#' response of the following system:
+#'
+#'    g(w) = (wI-A) \ B
+#'
+#' for the complex frequencies contained in the vector W. The column
+#' vector B must have as many rows as the matrix A.
+#' @param A State-space matrix, A
+#' @param B State-space matrix, B. B must have as many rows as the matrix A.
+#'
+#' @return Returns the frequency response in vector. \code{\link{freqresp}} utilizes this function for state-space systems.
+#'
+#'@seealso \code{\link{freqresp}}
+#'
+#' @examples
+#' ## use \code{\link{freqresp}}
+#'
+#' @export
 ltifr <- function(A, B, w){
   num_w <- max(dim(w))
   num_a <- max(dim(A))

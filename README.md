@@ -10,12 +10,13 @@ This library started as a [Google Summer of Code project (2017)](https://summero
 The package may be installed from this GitHub repository using `devtools` in the following manner:
 
 `install.packages("devtools")  # if not already installed on your PC`
+
 `devtools::install_github("benubah/control")`
 
 
 ## Features
 
-- Model Creation: Transfer function(tf), State-space(ss) and Zero-pole-gain (zpk) models
+- Model Creation: Transfer function(tf), State-space(ss) and Zero-pole-gain (zpk) models; Transfer function Expressions
 - Model Conversion: tf2ss, tf2zp, ss2tf, ss2zp, zp2tf, zp2ss, tfdata, ssdata, zpkdata
 - System Interconnection: append, serial, parallel, feedback, connect
 - Analysis: ctrb, obsv, pole, damp, dcgain
@@ -27,7 +28,7 @@ The package may be installed from this GitHub repository using `devtools` in the
 
 Most fundamental features of this toolbox were developed during the Google Summer of Code 2017 and a list of functions and activities produced during this summer could be found [here](https://github.com/benubah/controldev/blob/master/README.md).
 
-Google Summer of Code related articles for this project are:
+[Google Summer of Code project (2017)](https://summerofcode.withgoogle.com/projects/#5201658249216000) related articles demonstrating the usage of this toolbox are underlisted:
 
 - [Control Systems Toolbox in R - a GSoC 2017 Project](https://rviews.rstudio.com/2017/07/06/control-systems-toolbox-in-r---a-gsoc-2017-project/)
 - [Control Systems Toolbox – System Interconnection](https://rviews.rstudio.com/2017/08/24/control-systems-toolbox/)

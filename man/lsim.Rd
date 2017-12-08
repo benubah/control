@@ -4,7 +4,6 @@
 \alias{lsim}
 \title{Time response of a Linear system}
 \usage{
-lsim(sys, u, t)
 lsim(sys, u, t, x0)
 }
 \arguments{
@@ -48,8 +47,10 @@ grid(5,5, col = "lightgray")
 A <- rbind(c(0,1), c(-25,-4)); B <- rbind(c(1,1), c(0,1))
 C <- rbind(c(1,0), c(0,1)); D <- rbind(c(0,0), c(0,0))
 response <- lsim(ss(A,B,C,D), cbind(signal$u, signal$u), signal$t)
-plot(signal$t, response$y[1,], type = "l", main = "Linear Simulation Response", col = "blue"); grid(7,7)
-plot(signal$t, response$y[2,], type = "l", main = "Linear Simulation Response", col = "blue"); grid(7,7)
+plot(signal$t, response$y[1,], type = "l",
+ main = "Linear Simulation Response", col = "blue"); grid(7,7)
+plot(signal$t, response$y[2,], type = "l",
+main = "Linear Simulation Response", col = "blue"); grid(7,7)
 
 }
 \seealso{

@@ -18,7 +18,7 @@
 #'
 #' @return Returns the provided system (transfer function, state-space or zero-pole) in an equivalent discrete-time.
 #'
-#' @seealso \code{\link{c2dt}} \code{\link{ltitr}}
+#' @seealso  \code{\link{ltitr}}
 #'
 #' @examples
 #'

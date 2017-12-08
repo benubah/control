@@ -4,15 +4,19 @@
 #' \code{zp2ss} converts a system represented in zero-pole form to state-space
 #'
 #' @usage zp2ss(z,p,k)
-#' zp2ss(sys)
+#'
 #'
 #' @details
 #' \code{zp2ss} converts a system represented in zero-pole form to state-space by converting from zero-pole to transfer function and from transfer functon to state-space
 #'
+#' Another possible usage is: \code{zp2ss(sys)}
 #'
-#' @param zero      A vector or single row matrix
-#' @param pole      A vector or single row matrix
-#' @param gain      A vector
+#' where \code{sys} is  an object of zero-pole-gain model.
+#'
+#' @param z      Zero, a vector or single row matrix
+#' @param p      Pole, a vector or single row matrix
+#' @param k      Gain, a vector
+#'
 #'
 #' @return Returns a list object of 'ss' class.
 #'

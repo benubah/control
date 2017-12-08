@@ -10,6 +10,10 @@ series(sys1, sys2, outputs, inputs)
 \item{sys1}{LTI system object of tf, ss or zpk class}
 
 \item{sys2}{LTI system object of tf, ss or zpk class}
+
+\item{outputs}{vector of outputs}
+
+\item{inputs}{vector of inputs}
 }
 \value{
 The function returns a state-space model of the aggregate system with A, B, C, D matrices

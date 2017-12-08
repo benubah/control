@@ -5,14 +5,11 @@
 \title{Transfer function model conversion to Zero-Pole-Gain model.}
 \usage{
 tf2zp(num, den)
-tf2zp(sys)
 }
 \arguments{
 \item{num}{A numeric vector containing the coefficients of the}
 
 \item{den}{A numeric vector containing the coefficients of the}
-
-\item{sys}{An object of transfer function class}
 }
 \value{
 Returns a list object of 'zpk' class.
@@ -23,6 +20,10 @@ Returns a list object of 'zpk' class.
 \details{
 \code{tf2zp} converts a model object for a transfer function to a zero-pole model, Where \code{num} is the numerator and \code{den} is the denominator
 of the transfer function and \code{sys} is a transfer function object
+
+Another possible call is: \code{tf2zp(sys)}
+
+where \code{sys} is  an object of transfer-function model.
 }
 \examples{
 syszp1 <- tf2zp(c(1,1), c(1,2,1))

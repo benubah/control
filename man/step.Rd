@@ -5,11 +5,7 @@
 \alias{stepplot}
 \title{Step Response for Linear Systems}
 \usage{
-step(sys)
-step(sys, t)
 step(sys, t, input)
-stepplot(sys)
-stepplot(sys, t)
 stepplot(sys, t, input)
 }
 \arguments{
@@ -53,6 +49,16 @@ vector is returned as \code{t}
 \code{stepplot} produces the step response as a plot againts time.
 
 The functions can handle both SISO and MIMO (state-space) models.
+
+Other possible calls using \code{step} and \code{stepplot} are:
+
+\code{step(sys)}
+
+\code{step(sys, t)}
+
+\code{stepplot(sys)}
+
+\code{stepplot(sys, t)}
 }
 \examples{
 res <- step(tf(1, c(1,2,1)))

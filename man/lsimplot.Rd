@@ -4,7 +4,6 @@
 \alias{lsimplot}
 \title{Plot time response of an LTI system}
 \usage{
-lsimplot(sys, u, t)
 lsimplot(sys, u, t, x0)
 }
 \arguments{
@@ -16,7 +15,7 @@ such as \code{gensig}}
 
 \item{t}{time vector which must be regularly spaced. e.g. \code{seq(0,4,0.1)}}
 
-\item{x0}{a vector of initial conditions with as many rows as the rows of \code{a}}
+\item{x0}{a vector of initial conditions with as many rows as the rows of \code{sys$A}}
 }
 \value{
 Returns a plot for the response of the system
@@ -29,6 +28,8 @@ Returns a plot for the response of the system
 }
 \details{
 \code{lsimplot(sys, u, t)} plots the time history of the linear system with zero-initial conditions.
+
+\code{lsimplot(sys, u, t, x0)} plots the time history of the linear system with given initial conditions.
 
  If the linear system is represented as a model of \code{tf} or \code{zpk}
  it is first converted to state-space before linear simulation is performed. This function depends on \code{c2d} and \code{ltitr}

@@ -5,22 +5,18 @@
 \alias{initialplot}
 \title{Initial Condition Response for Linear Systems}
 \usage{
-initial(sys)
-initial(sys, x0)
 initial(sys, x0, t)
-initialplot(sys)
-initialplot(sys, x0)
 initialplot(sys, x0, t)
 }
 \arguments{
 \item{sys}{LTI system of transfer-function, state-space and zero-pole classes}
 
 \item{x0}{initial conditions as a column vector. Should have as many rows as the rows of A.
-           where x0 is not specified, random values are assigned
+where x0 is not specified, random values are assigned}
 
-       For calls to \code{initialplot}, the same arguments are allowed}
+\item{t}{regularly spaced time vector. If not provided, it is automatically set.
 
-\item{t}{regularly spaced time vector. If not provided, it is automatically set.}
+        For calls to \code{initialplot}, the same arguments are allowed}
 }
 \value{
 A list is returned by calling \code{initial} containing:
@@ -53,6 +49,16 @@ to an initial condition.
 \code{initialplot} produces the time response to initial conditions as a plot againts time.
 
 The functions can handle both SISO and MIMO (state-space) models.
+
+Other possible calls using \code{initial} and \code{initialplot} are:
+
+\code{initial(sys)}
+
+\code{initial(sys, x0)}
+
+\code{initialplot(sys)}
+
+\code{initialplot(sys, x0)}
 }
 \examples{
 res <- initial(tf(1, c(1,2,1)))

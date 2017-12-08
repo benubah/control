@@ -5,11 +5,7 @@
 \alias{impulseplot}
 \title{Impulse Response for Linear Systems}
 \usage{
-impulse(sys)
-impulse(sys, t)
 impulse(sys, t, input)
-impulseplot(sys)
-impulseplot(sys, t)
 impulseplot(sys, t, input)
 }
 \arguments{
@@ -55,6 +51,16 @@ to an impulse applied to the input
 \code{impulseplot} produces the impulse response as a plot against time.
 
 These functions can handle both SISO and MIMO (state-space) models.
+
+Other possible calls using \code{impulse} and \code{impulseplot} are:
+
+\code{impulse(sys)}
+
+\code{impulse(sys, t)}
+
+\code{impulseplot(sys)}
+
+\code{impulseplot(sys, t)}
 }
 \examples{
 res <- impulse(tf(1, c(1,2,1)))

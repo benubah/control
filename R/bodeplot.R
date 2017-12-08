@@ -15,7 +15,7 @@ bodeplot <- function(sys,  w = seq(0, 100, length=10000), iu = 1, subtitle = "In
  }
 
   if(ismimo(sys)) {
-    par(mfrow = c( 2*nrow(sys[[4]]), ncol(sys[[4]]) ) )
+    graphics::par(mfrow = c( 2*nrow(sys[[4]]), ncol(sys[[4]]) ) )
     for (i in 1:nrow(sys[[4]])) {
       for (j in 1:ncol(sys[[4]])) {
         bodeplot(selectsys(sys,i,j), subtitle = paste("In -", i, "Out -", j))

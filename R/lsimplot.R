@@ -6,12 +6,14 @@
 #'  \deqn{ y = Cx + Du}
 #'  to the input time history \code{u}.
 #'
-#' @usage lsimplot(sys, u, t)
+#' @usage
 #' lsimplot(sys, u, t, x0)
 #'
 #'
 #' @details
 #' \code{lsimplot(sys, u, t)} plots the time history of the linear system with zero-initial conditions.
+#'
+#' \code{lsimplot(sys, u, t, x0)} plots the time history of the linear system with given initial conditions.
 #'
 #'  If the linear system is represented as a model of \code{tf} or \code{zpk}
 #'  it is first converted to state-space before linear simulation is performed. This function depends on \code{c2d} and \code{ltitr}
@@ -20,9 +22,9 @@
 #' @param u      A row vector for single input systems. The input \code{u} must have as many rows as there are inputs
 #' in the system. Each column of \code{u} corresponds to a new time point. \code{u} could be generated using a signal generator
 #' such as \code{gensig}
-#'
 #' @param t     time vector which must be regularly spaced. e.g. \code{seq(0,4,0.1)}
-#' @param x0    a vector of initial conditions with as many rows as the rows of \code{a}
+#' @param x0    a vector of initial conditions with as many rows as the rows of \code{sys$A}
+#'
 #'
 #' @return Returns a plot for the response of the system
 #'
@@ -40,15 +42,17 @@
 #'
 #' @export
 
-lsimplot <- function (sys, u, t, x0 = NULL, input = 1) {
+lsimplot <- function (sys, u, t, x0 = NULL) {
   resp <- lsim(sys, u, t, x0)
   if (nrow(resp$y) > 1) {
-    par(mfrow = c(nrow(resp$y), 1))
+    graphics::par(mfrow = c(nrow(resp$y), 1))
     for (i in 1:nrow(resp$y)) {
-      plot(t, resp$y[i,], type = "l", xlab = "Time, sec", ylab = paste("y", i), main = "Linear Simulation Response", col = "blue"); grid(7,7)
+      graphics::plot(t, resp$y[i,], type = "l", xlab = "Time, sec", ylab = paste("y", i), main = "Linear Simulation Response", col = "blue");
+      graphics::grid(7,7)
     }
   } else {
-     plot(t, resp$y, type = "l", xlab = "Time, sec", ylab = paste("y", 1), main = "Linear Simulation Response", col = "blue"); grid(7,7)
+    graphics::plot(t, resp$y, type = "l", xlab = "Time, sec", ylab = paste("y", 1), main = "Linear Simulation Response", col = "blue")
+    graphics::grid(7,7)
   }
-  par(mfrow = c(1,1))
+  graphics::par(mfrow = c(1,1))
 }

@@ -4,12 +4,14 @@
 #' \code{zp2tf} converts the model for a zero-pole-gain system to transfer function representation
 #'
 #' @usage zp2tf(z, p, k)
-#' zp2tf(sys)
 #'
 #' @details
 #' \code{zp2tf} converts a model object for a zero-pole-gain system to a transfer function model
 #'
-#' @param sys   An object of zero-pole-gain class
+#' Another possible usage is: \code{zp2tf(sys)}
+#'
+#' where \code{sys} is  an object of zero-pole-gain model.
+#'
 #' @param z   A numeric vector containing zero locations
 #' @param p   A numeric vector containing pole locations
 #' @param k   A numeric vector for gain

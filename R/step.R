@@ -2,11 +2,7 @@
 #'
 #' @aliases stepplot
 #'
-#' @usage step(sys)
-#' step(sys, t)
-#' step(sys, t, input)
-#' stepplot(sys)
-#' stepplot(sys, t)
+#' @usage step(sys, t, input)
 #' stepplot(sys, t, input)
 #'
 #' @description \code{step} obtains the time response of the linear system:
@@ -20,6 +16,16 @@
 #' \code{stepplot} produces the step response as a plot againts time.
 #'
 #' The functions can handle both SISO and MIMO (state-space) models.
+#'
+#' Other possible calls using \code{step} and \code{stepplot} are:
+#'
+#' \code{step(sys)}
+#'
+#' \code{step(sys, t)}
+#'
+#' \code{stepplot(sys)}
+#'
+#' \code{stepplot(sys, t)}
 #'
 #' @param sys LTI system of transfer-function, state-space and zero-pole classes
 #' @param  t   Time vector. If not provided, it is automatically set.

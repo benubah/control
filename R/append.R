@@ -1,7 +1,7 @@
 #' @title Append the dynamics of a set of systems
 #'
 #' @aliases sysgroup
-#' @usage append(sys1, sys2, sys3, ..., sysN)
+#' @usage append(...)
 #'
 #' @description \code{append} appends the dynamics of a set of n-state-space systems together
 #'
@@ -11,13 +11,12 @@
 #' the systems in consecutive pairs until all systems are
 #' completely appended to form one system.
 #'
-#' \code{sysgroup(sys1, sys2)} appends only two systems
+#' \code{sysgroup(sys1, sys2)} appends only two systems and is used by \code{append}
 #'
 #' If a system is not in state-space representation, the function
 #' tries to form a state-space representation for such system.
 #'
-#' @param sys1 LTI system object of tf, ss or zpk class
-#' @param sys2 LTI system object of tf, ss or zpk class
+#' @param ... Variable argument for LTI system models of tf, ss or zpk class
 #'
 #' @return The function returns a state-space model of the formed appended system with A, B, C, D matrices
 #'

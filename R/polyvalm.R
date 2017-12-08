@@ -1,5 +1,5 @@
 
-#' @export
+# @export
 polyvalm <- function(p, x) {
   if (length(x) == 0) return(c())
   if (length(p) == 0) return(0 * x)

@@ -5,11 +5,7 @@
 \alias{rampplot}
 \title{Ramp Response for Linear Time-Invariant Systems}
 \usage{
-ramp(sys)
-ramp(sys, t)
 ramp(sys, t, input)
-rampplot(sys)
-rampplot(sys, t)
 rampplot(sys, t, input)
 }
 \arguments{
@@ -53,6 +49,16 @@ vector is returned as \code{t}
 \code{rampplot} produces the ramp response as a plot against time.
 
 These functions can handle both SISO and MIMO (state-space) models.
+
+#' Other possible calls using \code{ramp} and \code{rampplot} are:
+
+\code{ramp(sys)}
+
+\code{ranp(sys, t)}
+
+\code{rampplot(sys)}
+
+\code{rampplot(sys, t)}
 }
 \examples{
 res <- ramp(tf(1, c(1,2,1)))

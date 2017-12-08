@@ -77,8 +77,10 @@ freqresp <- function(sys, w = seq(0, 100, length = 10000), iu = 1) {
 #'
 #' for the complex frequencies contained in the vector W. The column
 #' vector B must have as many rows as the matrix A.
+#'
 #' @param A State-space matrix, A
-#' @param B State-space matrix, B. B must have as many rows as the matrix A.
+#' @param B State-space input-matrix, B. B must have as many rows as the matrix A.
+#' @param w  Vector of complex frequencies
 #'
 #' @return Returns the frequency response in vector. \code{\link{freqresp}} utilizes this function for state-space systems.
 #'

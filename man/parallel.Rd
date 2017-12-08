@@ -4,13 +4,20 @@
 \alias{parallel}
 \title{Parallel Connection of two systems}
 \usage{
-parallel(sys1, sys2)
-parallel(sys1, sys2, IN1, IN2, OUT1, OUT2)
+parallel(sys1, sys2, in1, in2, out1, out2)
 }
 \arguments{
 \item{sys1}{LTI system object of tf, ss or zpk class}
 
 \item{sys2}{LTI system object of tf, ss or zpk class}
+
+\item{in1}{Numeric vector containing indexes to the inputs of sys1}
+
+\item{in2}{Numeric vector containing indexes to the inputs of sys2}
+
+\item{out1}{Numeric vector containing indexes to the outputs of sys1}
+
+\item{out2}{Numeric vector containing indexes to the outputs of sys2}
 }
 \value{
 The function returns a state-space model of the parallel-connected system with A, B, C, D matrices
@@ -18,7 +25,9 @@ The function returns a state-space model of the parallel-connected system with A
 \description{
 \code{parallel} connects two systems in the parallel block form below
 
-              |-->[System1]--|
+               |-->[System1]--|
+           u-->+              0--->y
+               |<--[System2]--|
 }
 \details{
 \code{psys <-  parallel(sys1, sys2)} produces a state-

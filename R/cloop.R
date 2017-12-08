@@ -1,38 +1,51 @@
-#--------------------------------------------------------------------------
+#' @title Closed Feedback Loops
+#'
+#' @usage cloop(sys, e, f)
 #
-#  cloop.R
-#
-# Usage: cloop(sys1)
-#        cloop(sys1,outputs, inputs)
-#        cloop(sys1, sign)
-#
-#	Closed feedback loops.         -->O-->[ Sys ]---------+->
-#                                         |             |
-#                                         +-------------+
-#
-#
-#	State-Space: CLOOP(SYS, SGN) produces a state-space model
-#	of the closed-loop system obtained by feeding all the outputs of
-#	the system to all the inputs.  Positive feedback is used when SGN <- 1 and negative
-# when SGN <- -1
-# CLOOP(SYS,OUTPUTS,INPUTS) forms the closed
-#	loop system obtained by feeding the specific outputs into
-# specific outputs.  The vectors OUTPUTS and INPUTS contain indices
-#	into the outputs and inputs of the system respectively.  Positive
-#	feedback is assumed. Use negative	values in the vector INPUTS to
-# form closed loop with negative feedback.
-#
-#	Transfer functions <- CLOOP(SYS,SGN) produces the SISO closed loop
-#	system in transfer function form obtained by unity feedback with
-#	the sign SGN.
-#
-# Example
-# J <- 2.0; b <- 0.04; K <- 1.0; R <- 0.08; L <- 1e-4
-# P <- TF("K/(s*((J*s + b)*(L*s + R) + K^2))")
-# cloop(P)
-# cloop(ss(1,2,3,4))
-
+#'
+#' @description
+#' \code{cloop} forms a closed feedback loop for a state-space or transfer function system
+#'
+#'
+#' @details
+#' Other possible usages of \code{cloop}:
+#'
+#' \code{cloop(sys)}
+#'
+#' \code{cloop(sys, sgn)}
+#'
+#' If \code{sys} is a state-space model,  \code{cloop(sys, SGN)} produces a state-space model
+#'	of the closed-loop system obtained by feeding all the outputs of
+#'	the system to all the inputs.  Positive feedback is used when SGN <- 1 and negative
+#' when SGN <- -1
+#'
+#' If \code{sys} is a transfer function model, \code{cloop(sys, SGN)}
+#' produces the SISO closed loop
+#'	system in transfer function form obtained by unity feedback with
+#'	the sign SGN.
+#'
+#' cloop(sys,OUTPUTS,INPUTS) forms the closed
+#'	loop system obtained by feeding the specific outputs into
+#' specific outputs.  The vectors \code{OUTPUTS} and \code{INPUTS} contain indices
+#'	into the outputs and inputs of the system respectively.  Positive
+#'	feedback is assumed. To form closed loop with negative feedback, negative	values are used in the vector \code{INPUTS}.
+#'
+#'
+#' @param sys   LTI system model of transfer-function or state-space model
+#' @param e     inputs vector
+#' @param f     outputs vector
+#'
+#' @return Returns a closed feedback loop system
+#'
+#' @seealso \code{\link{feedback}}
+#'
+#' @examples
+#' J <- 2.0; b <- 0.04; K <- 1.0; R <- 0.08; L <- 1e-4
+#' P <- TF("K/(s*((J*s + b)*(L*s + R) + K^2))")
+#' cloop(P)
+#' cloop(ss(1,2,3,4))
 #' @export
+
 cloop <- function(sys, e, f){
 
   if (class(sys) == 'tf') {

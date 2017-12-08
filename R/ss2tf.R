@@ -3,10 +3,7 @@
 #' @description
 #' \code{ss2tf} converts the model for a state-space system to transfer function representation
 #'
-#' @usage ss2tf(a, b, c, d, iu) for systems with more than one input
-#' ss2tf(a, b, c, d)
-#' ss2tf(sys)
-#' ss2tf(sys, iu) for systems with more than one input
+#' @usage ss2tf(a, b, c, d, iu)
 #'
 #' @details
 #' \code{ss2tf} converts a model object in state-space form to transfer function model by calculating the transfer function of the system:
@@ -14,7 +11,13 @@
 #' x = Ax + Bu
 #' y = Cx + Du
 #'
-#' @param sys   An object of state-space class
+#' #' Other possible usages for \code{ss2tf} are:
+#' \code{ss2tf(a,b,c,d)}
+#' \code{ss2tf(sys)}
+#' \code{ss2tf(sys, iu)}
+#'
+#' where \code{sys} is an object of state-space class
+#'
 #' @param a An n x n matrix
 #' @param b An n x m matrix
 #' @param c An p x n matrix
@@ -24,7 +27,7 @@
 #' implies u2, and 3 implies u3.
 #'
 #' @return Returns an object of 'tf' class containing \code{num} and \code{den}. The numerator coefficients
-#' are returned in matrix num with as many rows as outputs y.
+#' are returned in matrix \code{num} with as many rows as outputs \code{y}.
 #'
 #' @seealso \code{\link{tf2ss}} \code{\link{ss2zp}}
 #'

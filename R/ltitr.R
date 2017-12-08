@@ -3,7 +3,7 @@
 #' @description
 #' \code{ltitr} Computes the time response of a Linear Time-Invariant system
 #'
-#' @usage ltitr(a, b, u)
+#' @usage
 #' ltitr(a, b, u, x0)
 #'
 #'
@@ -11,6 +11,7 @@
 #' \code{ltitr} computes the time response of a Linear Time-Invariant system in state-space representation of the form:
 #'  x[n+1] = Ax[n] + Bu[n] to an input, \code{U}
 #'
+#' \code{ltitr(a, b, u)} computes the time response with zero-initial conditions since x0 is not supplied.
 #'
 #' @param a      An n x n matrix of the state-space system
 #' @param b      An n x m matrix of the state-space system

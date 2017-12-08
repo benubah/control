@@ -59,12 +59,13 @@ ss <- function (A, B, C, D, Ts = NULL) {
 }
 
 #' @export
-print.ss <- function (sys) {
-  A <- sys$A
-  B <- sys$B
-  C <- sys$C
-  D <- sys$D
-  Ts <- sys$Ts
+print.ss <- function (x, ...) {
+  # arg x is the same sys
+  A <- x$A
+  B <- x$B
+  C <- x$C
+  D <- x$D
+  Ts <- x$Ts
 
   colnames(A) <- paste("x", 1:ncol(A), sep='')
   rownames(A) <- paste("x", 1:nrow(A), sep='')
@@ -89,10 +90,10 @@ print.ss <- function (sys) {
   print(D,print.gap = 3, right = TRUE)
   cat("   \n")
 
-  if ( is.null(sys$Ts) || sys$Ts <= 0) {
+  if ( is.null(Ts) || Ts <= 0) {
     cat("\n State-Space system: Continuous time model", "\n")
   } else {
-    cat("Sample Time =", sys$Ts, "\n")
+    cat("Sample Time =", Ts, "\n")
     cat("State-Space system: Discrete time model", "\n\n")
   }
 }

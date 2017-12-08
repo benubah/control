@@ -1,5 +1,17 @@
-# checks if state-space system is a single-input single-output system
-
+#' @title SISO / MIMO Check
+#'
+#' @aliases ismimo
+#'
+#' @description
+#' \code{issiso} checks if state-space system is a single-input single-output system
+#' \code{ismimo} checks if state-space system is a multiple-input multiple-output system
+#'
+#'
+#' @param sys Dynamic system of state-space model
+#'
+#' @return Returns TRUE or FALSE
+#'
+#'
 #' @export
 issiso <- function (sys) {
 
@@ -12,7 +24,7 @@ issiso <- function (sys) {
   }
 }
 
-# checks if state-space system is a multiple-input multiple-output system
+
 #' @export
 ismimo <- function (sys) {
 

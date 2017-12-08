@@ -9,13 +9,13 @@ impulseplot <- function(sys, t = NULL, input = 1) {
   if (length(input) == 1) {
     # Plot the results for all rows of y against t
     if (nrow(y) == 1) {
-      plot(t, y, type = "l", col = "blue", xlab = "Time, sec", ylab = paste("y"), main = "Impulse response")
-      grid(5, 5)
+      graphics::plot(t, y, type = "l", col = "blue", xlab = "Time, sec", ylab = paste("y"), main = "Impulse response")
+      graphics::grid(5, 5)
     } else {
-      par(mfrow = c(1, nrow(y)))
+      graphics::par(mfrow = c(1, nrow(y)))
       for (i in 1:nrow(y)) {
-        plot(t, y[i, ], type = "l", col = "blue", xlab = "Time, sec", ylab = paste("y", i), main = "Impulse response")
-        grid(5, 5)
+        graphics::plot(t, y[i, ], type = "l", col = "blue", xlab = "Time, sec", ylab = paste("y", i), main = "Impulse response")
+        graphics::grid(5, 5)
       }
     }
   }
@@ -24,5 +24,5 @@ impulseplot <- function(sys, t = NULL, input = 1) {
       impulseplot(sys, t, i)
     }
   }
-  par(mfrow = c(1,1))
+  graphics::par(mfrow = c(1,1))
 }

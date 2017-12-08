@@ -7,7 +7,7 @@
 ssdata(sys1)
 }
 \arguments{
-\item{sys}{an LTI system object of tf, ss or zpk classes}
+\item{sys1}{an LTI system object of tf, ss or zpk classes}
 }
 \value{
 Returns a list object of \code{ss} class containing A, B, C and D matrices

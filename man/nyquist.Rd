@@ -5,13 +5,7 @@
 \alias{nyquistplot}
 \title{Nyquist Frequency Response for continuous-time Linear Systems.}
 \usage{
-nyquist(sys)
-nyquist(sys, w)
 nyquist(sys, w, iu)
-nyquist(sys, w = seq(0, 100, length = 10000), iu = 1)
-nyquistplot(sys)
-nyquistplot(sys, w)
-nyquistplot(sys, w, subtitle)
 }
 \arguments{
 \item{sys}{LTI system of transfer-function, state-space and zero-pole classes}
@@ -45,6 +39,15 @@ computes the frequency response of the system using the \code{signal} package.
 them individually. This means that for a 2-input, 2-output system, \code{nyquistplot} obtains the response
 for input 1 to output 1, input 1 to output 2, input 2 to output 1 and input 2 to output 2.
 \code{nyquistplot} uses the \code{subtitle} argument to allow a user assign the plot a sub-title
+
+Other possible calls using \code{nyquist} and \code{nyquistplot} are:
+
+\code{nyquist(sys)}
+\code{nyquist(sys, w)}
+\code{nyquist(sys, w = seq(0, 100, length = 10000), iu = 1)}
+\code{nyquistplot(sys)}
+\code{nyquistplot(sys, w)}
+\code{nyquistplot(sys, w, subtitle)}
 }
 \examples{
 nyquist(tf(100, c(1,6,100)))

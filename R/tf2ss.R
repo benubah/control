@@ -4,17 +4,19 @@
 #' \code{tf2ss} converts the model for a transfer function to state-space representation
 #'
 #' @usage tf2ss(num, den)
-#' tf2ss(sys)
+#'
 #'
 #' @details
 #' \code{tf2ss} converts a model object for a transfer function to a state-space model, Where \code{num} is the numerator and \code{den} is the denominator
 #' of the transfer function and \code{sys} is a transfer function object
 #'
-#' @param sys   An object of transfer function class
+#' Another possible call is \code{tf2ss(sys)} where \code{sys} is object of transfer-function model.
+#'
 #' @param num   A numeric vector containing the coefficients of the
 # numerator in descending powers of s
 #' @param den   A numeric vector containing the coefficients of the
 # denominator in descending powers of s
+#'
 #'
 #' @return Returns an object of 'ss' class.
 #'

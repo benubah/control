@@ -3,21 +3,29 @@
 #' @description
 #' \code{ss2zp} converts a system represented in state-space form to zero-pole-gain model
 #'
-#' @usage ss2zp(a,b,c,d)
-#' ss2zp(a,b,c,d,iu) #for MIMO systems
-#' ss2zp(sys)
-#' ss2zp(sys, iu) for MIMO systems
+#' @usage ss2zp(a,b,c,d,iu)
 #'
 #' @details
 #' \code{ss2zp} converts a system represented in zero-pole form to state-space by converting from zero-pole to transfer function and from transfer functon to state-space
 #' The vector P contains the pole locations of the denominator of the transfer function.
 #'
+#' Other possible usages for \code{ss2zp} are:
 #'
-#' @param sys   An object of state-space class
+#' \code{ss2zp(a,b,c,d)}
+#'
+#' \code{ss2zp(sys)}
+#'
+#' \code{ss2zp(sys, iu)}
+#'
+#' where \code{sys} is  an object of state-space class
+#'
 #' @param a An n x n matrix
 #' @param b An n x m matrix
 #' @param c An p x n matrix
 #' @param d An p x m matrix
+#' @param iu A numeric value denoting number of inputs. default value is 1.For example, if the system
+#' has three inputs (u1, u2, u3), then iu must be either 1, 2, or 3, where 1 implies u1, 2
+#' implies u2, and 3 implies u3.
 #'
 #' @return Returns a list object of 'zpk' class, consisting of z, p and k. The numerator zeros are returned in the columns of matrix Z with number of columns equal to number of outputs.  The gains for
 #'  each numerator transfer function are returned in column vector K. P, a column vector contains the pole locations of the denominator of the transfer function.

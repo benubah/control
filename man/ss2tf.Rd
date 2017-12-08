@@ -4,10 +4,7 @@
 \alias{ss2tf}
 \title{State-space model conversion to Transfer function model.}
 \usage{
-ss2tf(a, b, c, d, iu) for systems with more than one input
-ss2tf(a, b, c, d)
-ss2tf(sys)
-ss2tf(sys, iu) for systems with more than one input
+ss2tf(a, b, c, d, iu)
 }
 \arguments{
 \item{a}{An n x n matrix}
@@ -21,12 +18,10 @@ ss2tf(sys, iu) for systems with more than one input
 \item{iu}{A numeric value denoting number of inputs. default value is 1.For example, if the system
 has three inputs (u1, u2, u3), then iu must be either 1, 2, or 3, where 1 implies u1, 2
 implies u2, and 3 implies u3.}
-
-\item{sys}{An object of state-space class}
 }
 \value{
 Returns an object of 'tf' class containing \code{num} and \code{den}. The numerator coefficients
-are returned in matrix num with as many rows as outputs y.
+are returned in matrix \code{num} with as many rows as outputs \code{y}.
 }
 \description{
 \code{ss2tf} converts the model for a state-space system to transfer function representation
@@ -36,6 +31,13 @@ are returned in matrix num with as many rows as outputs y.
 .
 x = Ax + Bu
 y = Cx + Du
+
+#' Other possible usages for \code{ss2tf} are:
+\code{ss2tf(a,b,c,d)}
+\code{ss2tf(sys)}
+\code{ss2tf(sys, iu)}
+
+where \code{sys} is an object of state-space class
 }
 \examples{
 sys2 <- tf2ss(tf(1, c(1,2,1)))

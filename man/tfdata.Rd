@@ -7,7 +7,7 @@
 tfdata(sys1)
 }
 \arguments{
-\item{sys}{an LTI system object of tf, ss or zpk classes}
+\item{sys1}{an LTI system object of tf, ss or zpk classes}
 }
 \value{
 Returns a list object of \code{tf} class containing numerator and denominator coefficients in desecending values of s.

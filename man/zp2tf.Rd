@@ -5,7 +5,6 @@
 \title{Zero-pole-gain model conversion to Transfer function model}
 \usage{
 zp2tf(z, p, k)
-zp2tf(sys)
 }
 \arguments{
 \item{z}{A numeric vector containing zero locations}
@@ -13,8 +12,6 @@ zp2tf(sys)
 \item{p}{A numeric vector containing pole locations}
 
 \item{k}{A numeric vector for gain}
-
-\item{sys}{An object of zero-pole-gain class}
 }
 \value{
 Returns a list object of 'tf' class.
@@ -24,6 +21,10 @@ Returns a list object of 'tf' class.
 }
 \details{
 \code{zp2tf} converts a model object for a zero-pole-gain system to a transfer function model
+
+Another possible usage is: \code{zp2tf(sys)}
+
+where \code{sys} is  an object of zero-pole-gain model.
 }
 \examples{
 systf <- zp2tf(zpk(NULL, c(-1,-1), 1))

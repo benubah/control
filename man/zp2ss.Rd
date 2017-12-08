@@ -5,14 +5,13 @@
 \title{Convert Zero-Pole-Gain Model to State-Space Model}
 \usage{
 zp2ss(z,p,k)
-zp2ss(sys)
 }
 \arguments{
-\item{zero}{A vector or single row matrix}
+\item{z}{Zero, a vector or single row matrix}
 
-\item{pole}{A vector or single row matrix}
+\item{p}{Pole, a vector or single row matrix}
 
-\item{gain}{A vector}
+\item{k}{Gain, a vector}
 }
 \value{
 Returns a list object of 'ss' class.
@@ -22,6 +21,10 @@ Returns a list object of 'ss' class.
 }
 \details{
 \code{zp2ss} converts a system represented in zero-pole form to state-space by converting from zero-pole to transfer function and from transfer functon to state-space
+
+Another possible usage is: \code{zp2ss(sys)}
+
+where \code{sys} is  an object of zero-pole-gain model.
 }
 \examples{
 zp2ss(NULL, c(-1,-1), 1)

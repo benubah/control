@@ -4,13 +4,16 @@
 #' \code{tf2zp} converts the model for a transfer function to zero-pole-gain representation
 #'
 #' @usage tf2zp(num, den)
-#' tf2zp(sys)
+#'
 #'
 #' @details
 #' \code{tf2zp} converts a model object for a transfer function to a zero-pole model, Where \code{num} is the numerator and \code{den} is the denominator
 #' of the transfer function and \code{sys} is a transfer function object
 #'
-#' @param sys   An object of transfer function class
+#' Another possible call is: \code{tf2zp(sys)}
+#'
+#' where \code{sys} is  an object of transfer-function model.
+#'
 #' @param num   A numeric vector containing the coefficients of the
 # numerator in descending powers of s
 #' @param den   A numeric vector containing the coefficients of the

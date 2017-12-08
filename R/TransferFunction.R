@@ -277,8 +277,13 @@ TF <- function (str_expr) {
     } else {
       argnum <- args[[1]]
       argden <- args[[2]]
-      res <- list(num = matrix(argnum, nrow=1), den = matrix(argden, nrow=1))
-      class(res) <- 'tf'
+
+       if(is.atomic(argnum) && argnum == 0) {
+          res <- 0
+      } else {
+        res <- list(num = matrix(argnum, nrow=1), den = matrix(argden, nrow=1))
+        class(res) <- 'tf'
+      }
       return(res)
     }
   }
@@ -288,8 +293,10 @@ TF <- function (str_expr) {
     res <- pracma::polypow(args[[1]],args[[2]])
     #class(res) <- 'tf'
     return(res)
-  }
-  if (length(args1) > 0) {
+}
+
+
+if (length(args1) > 0) {
     argeval <- eval(parse(text = args1))
     if (is.vector(argeval)) {
        argeval <- list(num = matrix(argeval, nrow = 1), den = matrix(1, nrow = 1))
@@ -298,6 +305,26 @@ TF <- function (str_expr) {
     return(argeval)
   }
 }
+
+#' @title Subtracting Polynomials
+#'
+#' @description
+#' Subtract two polynomials given as vectors
+#'
+#'
+#' @details
+#' Simply calls \code{polyadd} from \code{pracma} package
+#' in the following manner: \code{pracma::polyadd(a, -b)}
+#'
+#' @param a  Vector representing first polynomial.
+#' @param b  Vector representing second polynomial.
+#'
+#' @return Returns a Vector representing the resulting polynomial.
+#'
+#' @examples
+#' polysub(c(1, 1, 1), 1)
+#' polysub(c(1, 1, 1), c(0, 0, 1))
+#'
 #' @export
 polysub <- function (a, b) {
   return(pracma::polyadd(a, -b))

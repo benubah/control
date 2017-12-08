@@ -8,6 +8,8 @@
 #' If sys is a state-space object, it computes the eigenvalues of the A matrix.
 #' If sys is a zpk object, it retrieves the poles from the object.
 #'
+#' @param sys LTI system of tf, ss and zpk class
+#'
 #' @return The function returns a column matrix containing the poles for the given system
 #'
 #' @examples

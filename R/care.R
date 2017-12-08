@@ -1,26 +1,39 @@
-
-#
-# care
-#
-# X <- care(A,B,Q)
-#
-# Continuous-time Algebraic Riccati Equation solution.
-# X <- care(A, B, Q, R) returns the stablizing solution (if it
-# exists) to the continuous-time Riccati equation:
-#
-#          A'*X + X*A − X*B*R^−1*B'*X + Q'*Q = 0
-#
-# G = R^-1 B'X*E
-# L = eig(a-b*g)
-
-#Example
-#a = matrix(c(-3, 2,1, 1), byrow = TRUE, ncol = 2)
-#b = matrix(c(0, 1), nrow = 2)
-#c = matrix(c(1, -1), ncol=2)
-#q=t(c)%*%c
-#r=3
-#care(a,b,q,r)
+#' @title Continuous-time Algebraic Riccati Equation solution
+#'
+#'
+#' @description  Computes the unique solution to the continuous-time Riccati equation:
+#'
+#'        A'* X + X*A - X * B * R^-1 * B' * X + Q'*Q = 0
+#'
+#'
+#' @details  \code{X <- care(A, B, Q, R)} returns the stablizing solution (if it
+#' exists) to the continuous-time Riccati equation.
+#'
+#' The \code{care} function also returns the gain matrix, \code{G}
+#' and a vector, \code{L} of the closed-loop eigenvalues, where
+#'
+#' G = R^-1 B'X*E
+#'
+#' \code{L = eig(a-b*g)}
+#'
+#' @param A State-matrix of a state-space system
+#' @param B Input-matrix of a state-space system
+#' @param Q Symmetric output-matrix of a state-space system
+#' @param R Single number
+#'
+#' @note  A, B must be controllable
+#'
+#' @return Returns the stabilizing matrix, gain and closed-loop eigenvalues in a list.
+#'
+#' @examples
+#' a <- matrix(c(-3, 2,1, 1), byrow = TRUE, ncol = 2)
+#' b <- matrix(c(0, 1), nrow = 2)
+#' c <- matrix(c(1, -1), ncol = 2)
+#' q <- t(c)%*%c
+#' r <- 3
+#' care(a, b, q, r)
 #' @export
+#'
 care <- function(A, B, Q, R = 1) {
   eps <- .Machine$double.eps
   nr <- nrow(A)

@@ -9,10 +9,12 @@ ltifr(A, B, w)
 \arguments{
 \item{A}{State-space matrix, A}
 
-\item{B}{State-space matrix, B. B must have as many rows as the matrix A.}
+\item{B}{State-space input-matrix, B. B must have as many rows as the matrix A.}
+
+\item{w}{Vector of complex frequencies}
 }
 \value{
-Returns the frequency response in vector. \code{\link{freqresp}} utilizes this function.
+Returns the frequency response in vector. \code{\link{freqresp}} utilizes this function for state-space systems.
 }
 \description{
 This function computes the frequency
@@ -24,7 +26,7 @@ for the complex frequencies contained in the vector W. The column
 vector B must have as many rows as the matrix A.
 }
 \examples{
-## use\\code{\\link{freqresp}}
+## use \\code{\\link{freqresp}}
 
 }
 \seealso{

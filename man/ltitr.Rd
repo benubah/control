@@ -4,7 +4,6 @@
 \alias{ltitr}
 \title{Time response of a Linear Time-Invariant system}
 \usage{
-ltitr(a, b, u)
 ltitr(a, b, u, x0)
 }
 \arguments{
@@ -28,6 +27,8 @@ many rows as there are outputs y (and with \code{max(dim(U))} columns).
 \details{
 \code{ltitr} computes the time response of a Linear Time-Invariant system in state-space representation of the form:
  x[n+1] = Ax[n] + Bu[n] to an input, \code{U}
+
+\code{ltitr(a, b, u)} computes the time response with zero-initial conditions since x0 is not supplied.
 }
 \examples{
 

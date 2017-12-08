@@ -2,11 +2,8 @@
 #'
 #' @aliases initialplot
 #'
-#' @usage initial(sys)
-#' initial(sys, x0)
+#' @usage
 #' initial(sys, x0, t)
-#' initialplot(sys)
-#' initialplot(sys, x0)
 #' initialplot(sys, x0, t)
 #'
 #' @description \code{initial} obtains the time response of the linear system:
@@ -23,12 +20,22 @@
 #'
 #' The functions can handle both SISO and MIMO (state-space) models.
 #'
+#' Other possible calls using \code{initial} and \code{initialplot} are:
+#'
+#' \code{initial(sys)}
+#'
+#' \code{initial(sys, x0)}
+#'
+#' \code{initialplot(sys)}
+#'
+#' \code{initialplot(sys, x0)}
+#'
 #' @param sys LTI system of transfer-function, state-space and zero-pole classes
-#' @param  t   regularly spaced time vector. If not provided, it is automatically set.
 #' @param x0  initial conditions as a column vector. Should have as many rows as the rows of A.
 #'            where x0 is not specified, random values are assigned
+#' @param  t   regularly spaced time vector. If not provided, it is automatically set.
 #'
-#'        For calls to \code{initialplot}, the same arguments are allowed
+#'         For calls to \code{initialplot}, the same arguments are allowed
 #'
 #' @return A list is returned by calling \code{initial} containing:
 #'

@@ -6,7 +6,7 @@
 #' @details
 #' \code{ssdata} retrieves a model object for a state-space system, from a \code{sys} object of tf, ss and zpk classes
 #'
-#' @param sys an LTI system object of tf, ss or zpk classes
+#' @param sys1 an LTI system object of tf, ss or zpk classes
 #'
 #' @return Returns a list object of \code{ss} class containing A, B, C and D matrices
 #'

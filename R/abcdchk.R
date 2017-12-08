@@ -64,7 +64,9 @@ abcdchk <- function (a, b, c, d) {
        if ( ( nrow(a) + nrow(b) + nrow(c) ) == 0) {
       return(errmsg);
     }
-
+    if( !is.matrix(d)){
+      stop("ABCDCHK:  D must be a matrix! ")
+    }
     if (ncol(d) || ncol(b)) {
       if (nrow(d) != nrow(c)) {
         errmsg <- "C and D must have the same number of rows."

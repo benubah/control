@@ -1,20 +1,36 @@
-# damp.R
-#
-# Usage: damp(sys)
-#
-#
-# This function computes the natural frequency and damping for
-# continuous systems. It prints a table of the eigenvalues of
-# the matrix a, the associated damping factors, the associated natural
-# frequency (rad/s and Hz.).
-#
-# The function returns the natrural frequencies and damping
-# factors in a list:
-#
-#  omegan = Natural Frequencies (rad/s)
-#  zeta   = Damping Factors
-#
-
+#' @title Damping and Natural Frequencies for Continuous Systems
+#'
+#' @description
+#' \code{damp} computes the natural frequency and damping for
+#' continuous systems.
+#'
+#' @details
+#' A table of the eigenvalues of
+#' the matrix a, the associated damping factors, the associated natural
+#' frequency (rad/s and Hz.) is displayed by calling the function.
+#'
+#' When the continuous system is a state-space model, the eigenvalues of the state matrix
+#' are obtained and sorted.
+#' If the system is a transfer-function, the poles of the systems are obtained and sorted.
+#' For zero-pole systems, the poles are just extracted and sorted.
+#' The sorted eigenvalues are printed to output and used to obtain the natural frequencies
+#' and damping factors.
+#'
+#' @param sys A Continuous-time system of state-space, transfer-function or zero-pole-gain model.
+#' @param doPrint If TRUE prints out the results. Default is TRUE.
+#'
+#' @return Returns the natrural frequencies and damping
+#' factors in a list:
+#'
+#'  omegan = Natural Frequencies (rad/s)
+#'  zeta   = Damping Factors
+#'
+#' @seealso \code{\link{esort}}
+#'
+#' @examples
+#' sys1 <- tf(1, c(1,2,5))
+#' damp(sys1)
+#'
 #' @export
 damp <- function (sys, doPrint = TRUE) {
   # Compute the eigenvalues of the matrix and sort them

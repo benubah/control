@@ -6,7 +6,7 @@
 #' @details
 #' \code{zpkdata} retrieves a model object for a zero-pole-gain system, from a \code{sys} object of \code{tf}, \code{ss} and \code{zpk} classes
 #'
-#' @param sys an LTI system object of \code{tf}, \code{ss} or \code{zpk} classes
+#' @param sys1 an LTI system object of \code{tf}, \code{ss} or \code{zpk} classes
 #'
 #' @return Returns a list object of \code{zpk} class containing zero, pole and gain matrices. For multivariable systems,
 #' the zeros of each system is listed as a column in the zeros matrix, the poles are listed as a column-vector as well as the
@@ -47,7 +47,7 @@ zpkdata <- function (sys1) {
     # MIMO systems
     if( ncol(sys1[[4]]) > 1) {
       systems <- vector("list", ncol(sys1[[4]]))
-      for (i in 1:ncol(D)) { systems[[i]] <- ss2zp(sys1, i) }
+      for (i in 1:ncol(sys1[[4]])) { systems[[i]] <- ss2zp(sys1, i) }
       return(systems)
     } else {
       zpsys <- ss2zp(sys1)

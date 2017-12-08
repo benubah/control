@@ -117,7 +117,7 @@ ss2tf <- function(a, b, c, d, iu = 1) {
   num <- matrix(1, d_rows, maxdimA + 1)
 
   for (i in 1:d_rows) {
-    num[i,] <- pracma::Poly(a-b %*% c[i, , drop = FALSE]) + (d[i] - 1) * den
+    num[i,] <- round(pracma::Poly(a-b %*% c[i, , drop = FALSE]) + (d[i] - 1) * den, digits = 3)
   }
   sys1 <- list(num = num, den = den)
   class(sys1) <- 'tf'

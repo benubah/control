@@ -35,5 +35,5 @@ c2d(zpkdata( tf(c(1,-1), c(1,4,5)) ), 0.1)
 
 }
 \seealso{
-\code{\link{c2dt}} \code{\link{ltitr}}
+\code{\link{ltitr}}
 }

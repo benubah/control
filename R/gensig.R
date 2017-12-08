@@ -1,13 +1,14 @@
 #' @title Generate periodic signal
+#'
 #' @description
 #' \code{gensig} generates a periodic signal. More useful when used in combination with \code{lsim}
 #'
-#' @usage gensig(signal)
-#' gensig(signal, tau, tfinal, tsam)
+#' @usage  gensig(signal, tau, tfinal, tsam)
 #'
 #' @details
 #' \code{gensig} generates a periodic signal of the following types: \code{square, sin, cos, pulse}
 #'
+#' Possible usage: \code{gensig(signal)}
 #'
 #' @param signal      A string input containing either values of: \code{square, sin, cos, pulse} in the following format:
 #'
@@ -24,7 +25,9 @@
 #' @param tsam       sampling time in seconds. Default is 0.01
 #'
 #' @return Returns a list of two single column matrices, \code{u} and \code{t}
+#'
 #'         \code{u} is the vector of signal values
+#'
 #'         \code{t} is the time vector of the signal
 #'
 #' @seealso \code{\link{lsim}}

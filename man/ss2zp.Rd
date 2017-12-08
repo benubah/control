@@ -4,10 +4,7 @@
 \alias{ss2zp}
 \title{State-space representation to zero-pole-gain representation}
 \usage{
-ss2zp(a,b,c,d)
-ss2zp(a,b,c,d,iu) #for MIMO systems
-ss2zp(sys)
-ss2zp(sys, iu) for MIMO systems
+ss2zp(a,b,c,d,iu)
 }
 \arguments{
 \item{a}{An n x n matrix}
@@ -18,7 +15,9 @@ ss2zp(sys, iu) for MIMO systems
 
 \item{d}{An p x m matrix}
 
-\item{sys}{An object of state-space class}
+\item{iu}{A numeric value denoting number of inputs. default value is 1.For example, if the system
+has three inputs (u1, u2, u3), then iu must be either 1, 2, or 3, where 1 implies u1, 2
+implies u2, and 3 implies u3.}
 }
 \value{
 Returns a list object of 'zpk' class, consisting of z, p and k. The numerator zeros are returned in the columns of matrix Z with number of columns equal to number of outputs.  The gains for
@@ -30,6 +29,16 @@ Returns a list object of 'zpk' class, consisting of z, p and k. The numerator ze
 \details{
 \code{ss2zp} converts a system represented in zero-pole form to state-space by converting from zero-pole to transfer function and from transfer functon to state-space
 The vector P contains the pole locations of the denominator of the transfer function.
+
+Other possible usages for \code{ss2zp} are:
+
+\code{ss2zp(a,b,c,d)}
+
+\code{ss2zp(sys)}
+
+\code{ss2zp(sys, iu)}
+
+where \code{sys} is  an object of state-space class
 }
 \examples{
 A <- rbind(c(-2, -1), c(1,0)); B <- rbind(1,0);

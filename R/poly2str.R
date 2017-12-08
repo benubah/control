@@ -1,11 +1,24 @@
-## Modified from package *pracma*.
-## Modification: To hide any coefficient and power that is equal to 1
-## So that instead of '1s^3' we have 's^3' and instead of 's^1', we have 's'
-##  p o l y 2 s t r . R  Print Polynomial
-#
+#' @title Print Polynomial
+#'
+#' @description
+#' Print polynomial as a character string.
+#'
+#' @details
+#' Modified from package *pracma*.
+#' Modification: To hide any coefficient and power that is equal to 1
+#' So that instead of '1s^3' we have 's^3' and instead of 's^1', we have 's'
+#'
+#' @param p	numeric vector representing a polynomial
+#' @param svar	character representing the unknown, default x.
+#' @param smul	multiplication symbol, default *.
+#' @param d	 significant digits, default options("digits").
+#'
+#' @return Returns the usual string representing a polynomial in mathematics.
+#'
+#' @examples
+#' poly2str(c(2, -3, 1, 20, -11))
+#'
 #' @export
-
-
 poly2str <- function(p, svar = "x", smul = "*",
                      d = options("digits")$digits) {
   if (length(p) == 0) return("")

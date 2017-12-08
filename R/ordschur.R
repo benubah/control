@@ -1,31 +1,26 @@
-#----------------------------------------------------------------------
-#
-# ordschur
-#
-#	Ordered schur decomposition.
-# ordschur(Ui, Si, index)
-# Si is a square upper-triangular matrix
-# Ui is an orthogonal matrix Ui
-#	where Si and Ui are output from a SCHUR function call
-# !!! WARNING: ORDSCHUR does not reorder REAL Schur forms. !!!
-#	ordschur finds an orthogonal matrix U such that the eigenvalues
-#	appearing on the diagonal of Si are ordered according to the
-#	increasing values of the array index where the i-th element
-#	of index corresponds to the eigenvalue appearing as the
-#	element  Si[i,i].
-#
-#	Usage: ordschur(Ui, Si, idx)
-#        ordschur(Si, idx)
-#	Return:
-#       list of (U, S)
-#
-#	The orthogonal matrix U is accumulated in Uo as  Uo <- Ui*U.
-#     	If Ui is not given it is set to the identity matrix.
-#
-#
-#
-#----------------------------------------------------------------------
-
+#' @title Ordered schur decomposition
+#'
+#' @usage ordschur(Ui, Si, idx)
+#'
+#' @description
+#' \code{ordschur} Orders a schur decomposition
+#'
+#'
+#' @details
+#' \code{ordschur} finds an orthogonal matrix, \code{U} so that the eigenvalues
+#'	appearing on the diagonal of \code{Si} are ordered according to the
+#'	increasing values of the array index where the i-th element
+#'	of index corresponds to the eigenvalue appearing as the
+#'	element  \code{Si[i,i]}.
+#'
+#'	\code{ordschur} could also be used in this syntax:  \code{ordschur(Si, idx)}
+#'
+#' @param Ui   Square upper-triangular matrix matrix from schur decomposition. If Ui is not given it is set to the identity matrix.
+#' @param Si   Orthogonal matrix from schur decomposition
+#' @param idx  array index
+#'
+#' @return Returns a list of ordered (U, S)
+#'
 #' @export
 ordschur <- function(Ui, Si,  idx) {
   n <- nrow(Si)

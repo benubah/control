@@ -1,14 +1,14 @@
 #' @title Parallel Connection of two systems
 #'
-#' @usage parallel(sys1, sys2)
-#' parallel(sys1, sys2, IN1, IN2, OUT1, OUT2)
+#' @usage
+#' parallel(sys1, sys2, in1, in2, out1, out2)
 #'
 #' @description \code{parallel} connects two systems in the parallel block form below
 #'
-#'               |-->[System1]--|
-#            u-->+              0--->y
-#                |<--[System2]--|
-#
+#'                |-->[System1]--|
+#'            u-->+              0--->y
+#'                |<--[System2]--|
+#'
 #' @details  \code{psys <-  parallel(sys1, sys2)} produces a state-
 #'	space system consisting of the parallel connection of sys1
 #'	and sys2 that connects all the inputs together and sums all the
@@ -31,6 +31,10 @@
 #'
 #' @param sys1 LTI system object of tf, ss or zpk class
 #' @param sys2 LTI system object of tf, ss or zpk class
+#' @param in1  Numeric vector containing indexes to the inputs of sys1
+#' @param in2  Numeric vector containing indexes to the inputs of sys2
+#' @param out1 Numeric vector containing indexes to the outputs of sys1
+#' @param out2 Numeric vector containing indexes to the outputs of sys2
 #'
 #' @return The function returns a state-space model of the parallel-connected system with A, B, C, D matrices
 #'

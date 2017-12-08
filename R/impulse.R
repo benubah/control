@@ -2,11 +2,8 @@
 #'
 #' @aliases impulseplot
 #'
-#' @usage impulse(sys)
-#' impulse(sys, t)
+#' @usage
 #' impulse(sys, t, input)
-#' impulseplot(sys)
-#' impulseplot(sys, t)
 #' impulseplot(sys, t, input)
 #'
 #' @description \code{impulse} obtains the impulse response of the linear system:
@@ -22,6 +19,17 @@
 #' \code{impulseplot} produces the impulse response as a plot against time.
 #'
 #' These functions can handle both SISO and MIMO (state-space) models.
+#'
+#' Other possible calls using \code{impulse} and \code{impulseplot} are:
+#'
+#' \code{impulse(sys)}
+#'
+#' \code{impulse(sys, t)}
+#'
+#' \code{impulseplot(sys)}
+#'
+#' \code{impulseplot(sys, t)}
+#'
 #'
 #' @param sys LTI system of transfer-function, state-space and zero-pole classes
 #' @param  t   Time vector. If not provided, it is automatically set.

@@ -6,6 +6,13 @@
 \usage{
 acker(a, b, p)
 }
+\arguments{
+\item{a}{State-matrix of a state-space system}
+
+\item{b}{Input-matrix of a state-space system}
+
+\item{p}{closed loop poles}
+}
 \description{
 Computes the Pole placement gain selection using Ackermann's formula.
 }

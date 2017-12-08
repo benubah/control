@@ -2,11 +2,8 @@
 #'
 #' @aliases rampplot
 #'
-#' @usage ramp(sys)
-#' ramp(sys, t)
+#' @usage
 #' ramp(sys, t, input)
-#' rampplot(sys)
-#' rampplot(sys, t)
 #' rampplot(sys, t, input)
 #'
 #' @description \code{ramp} obtains the ramp response of the linear system:
@@ -21,6 +18,16 @@
 #' \code{rampplot} produces the ramp response as a plot against time.
 #'
 #' These functions can handle both SISO and MIMO (state-space) models.
+#'
+#' #' Other possible calls using \code{ramp} and \code{rampplot} are:
+#'
+#' \code{ramp(sys)}
+#'
+#' \code{ranp(sys, t)}
+#'
+#' \code{rampplot(sys)}
+#'
+#' \code{rampplot(sys, t)}
 #'
 #' @param sys LTI system of transfer-function, state-space and zero-pole classes
 #' @param  t   Time vector. If not provided, it is automatically set.

@@ -6,7 +6,7 @@
 #' @details
 #' \code{tfdata} retrieves a model object for a transfer function, from a \code{sys} object of tf, ss and zpk classes
 #'
-#' @param sys an LTI system object of tf, ss or zpk classes
+#' @param sys1 an LTI system object of tf, ss or zpk classes
 #'
 #' @return Returns a list object of \code{tf} class containing numerator and denominator coefficients in desecending values of s.
 #'  For multiple-input multiple-output systems (MIMO) a list containing tf sys objects for as many outputs is returned
@@ -35,7 +35,7 @@ tfdata <- function ( sys1 ) {
     # MIMO systems
     if( ncol(sys1[[4]]) > 1) {
       systems <- vector("list", ncol(sys1[[4]]))
-      for (i in 1:ncol(D)) { systems[[i]] <- ss2tf(sys1, i) }
+      for (i in 1:ncol(sys1[[4]])) { systems[[i]] <- ss2tf(sys1, i) }
       return(systems)
     } else {
     tfsys <- ss2tf(sys1)

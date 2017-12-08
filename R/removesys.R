@@ -1,24 +1,4 @@
-
-#  removesys.R
-#
-# Syntax: sys <-  removesys(statesys,input,outputs)
-#         sys <- removesys(statesys,input,outputs, states)
-#
-# This function removes inputs, outputs, and state from a state-space system.
-#
-# sys <- removesys(statesys,input,outputs) will remove the
-# specified inputs and outputs from the system.
-#
-# sys <- removesys(statesys,inputs,outputs,states) will
-# also return a state-space model with the specified inputs, outputs, and
-# states removed from the system.
-# Example:
-# A <- rbind(c(33,2,5), c(23,200,2), c(9,2,45))
-# B <- rbind(c(4,5), c(12,5), c(82,1))
-# C <- rbind(c(34,56,2), c(6,2,112))
-# D <- rbind(c(2,0), c(0,19))
-# removesys(sys1, 1,2) # removes input 1 and output 2
-
+# Remove A Subsystem from State-Space Model
 #' @export
 removesys <- function (statesys, inputs, outputs, states) {
   errmsg <- abcdchk(statesys)

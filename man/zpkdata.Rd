@@ -7,7 +7,7 @@
 zpkdata(sys1)
 }
 \arguments{
-\item{sys}{an LTI system object of \code{tf}, \code{ss} or \code{zpk} classes}
+\item{sys1}{an LTI system object of \code{tf}, \code{ss} or \code{zpk} classes}
 }
 \value{
 Returns a list object of \code{zpk} class containing zero, pole and gain matrices. For multivariable systems,

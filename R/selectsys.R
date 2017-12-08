@@ -1,27 +1,50 @@
-# selectsys.R
-#
-# Usage: A <- selectsys(statesys,inputs,outputs,states)
-#
-# This  function extracts a subsystem from a larger state-space system.
-# subsys <- selectsys(statesys,inputs,outputs) will extract a state
-# space subsystem with the specified inputs and outputs.
-#
-# subsys <- selectsys(a,b,c,d,inputs,outputs,states) will return
-# the state space subsystem with the specified inputs, outputs, and states.
-#
-# Return: The matrices  a_extracted,  b_extracted, c_extracted, and  d_extracted are returned in a list.
-#
-# Example:
-# A <- rbind(c(33,2,5), c(23,200,2), c(9,2,45))
-# B <- rbind(c(4,5), c(12,5), c(82,1))
-# C <- rbind(c(34,56,2), c(6,2,112))
-# D <- rbind(c(2,0), c(0,19))
-#  selectsys(sys1, 1, 1) # extract subsystem for only input 1 and output 1
-#  selectsys(sys1, 2,2) # extract subsystem for only input 2 and output 2
-#  selectsys(sys1, 2, 1:2) # extract subsystem for only input 1 and output 1 to 2
-#  selectsys(sys1, 1:2, 2) # extract subsystem for only input 1 to 2 and output 2 to 2
-#  selectsys(sys1, 2, 2, 1:2) # extract subsystem for only input 2 and output 2 but states 1 to 2
-
+#' @title Select/Remove Subsystem in State-space Model
+#'
+#' @aliases removesys
+#'
+#' @usage selectsys(statesys, inputs, outputs, states)
+#'        removesys(statesys, inputs, outputs, states)
+#'
+#'
+#' @description
+#' \code{selectsys} extracts a subsystem from a larger state-space system.
+#' \code{removesys} removes specified inputs, outputs, and state from a state-space system.
+#'
+#'
+#' @details
+#' \code{subsys <- selectsys(statesys,inputs,outputs)} will extract a state
+#' space subsystem with the specified inputs and outputs.
+#'
+#' \code{subsys <- selectsys(statesys, inputs,outputs,states)} will return
+#' the state space subsystem with the specified inputs, outputs, and states.
+#'
+#' \code{subsys <-  removesys(statesys, inputs, outputs)} will remove the specified inputs and outputs from the system.
+#'
+#' \code{subsys <-  removesys(statesys, inputs, outputs, states)} will
+#' also return a state-space model with the specified inputs, outputs, and
+#' states removed from the system.
+#'
+#' @param statesys   LTI system model of state-space model
+#' @param inputs single integer or vector specifying the particular inputs to be selected/removed
+#' @param outputs single integer or vector specifying the particular outputs to be selected/removed
+#' @param states single integer or vector specifying the particular states to be selected/removed
+#'
+#' @return Returns a subsystem of the state-space model
+#'
+#' @seealso \code{\link{append}}
+#'
+#' @examples
+#' A <- rbind(c(33,2,5), c(23,200,2), c(9,2,45))
+#' B <- rbind(c(4,5), c(12,5), c(82,1))
+#' C <- rbind(c(34,56,2), c(6,2,112))
+#' D <- rbind(c(2,0), c(0,19))
+#' sys1 <- ss(A, B, C, D)
+#'  selectsys(sys1, 1, 1) # extract subsystem for only input 1 and output 1
+#'  selectsys(sys1, 2,2) # extract subsystem for only input 2 and output 2
+#'  selectsys(sys1, 2, 1:2) # extract subsystem for only input 1 and output 1 to 2
+#'  selectsys(sys1, 1:2, 2) # extract subsystem for only input 1 to 2 and output 2 to 2
+#'  selectsys(sys1, 2, 2, 1:2) # extract subsystem for only input 2 and output 2 but states 1 to 2
+#'  removesys(sys1, 1,2) # removes input 1 and output 2
 #' @export
 selectsys <- function(statesys, inputs, outputs, states) {
   errmsg <- abcdchk(statesys)

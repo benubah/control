@@ -9,7 +9,7 @@
 # k <- 10
 # ode2ss(coef_i, k)
 
-#' @export
+# @export
 ode2ss <- function (coef_i, k) {
   n <- length(coef_i) - 1
   I  <- pracma::eye(n - 1)

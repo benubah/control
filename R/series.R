@@ -14,6 +14,8 @@
 #'
 #' @param sys1 LTI system object of tf, ss or zpk class
 #' @param sys2 LTI system object of tf, ss or zpk class
+#' @param outputs      vector of outputs
+#' @param inputs      vector of inputs
 #'
 #' @return The function returns a state-space model of the aggregate system with A, B, C, D matrices
 #'

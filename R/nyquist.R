@@ -2,13 +2,8 @@
 #'
 #' @aliases nyquistplot
 #'
-#' @usage nyquist(sys)
-#' nyquist(sys, w)
+#' @usage
 #' nyquist(sys, w, iu)
-#' nyquist(sys, w = seq(0, 100, length = 10000), iu = 1)
-#' nyquistplot(sys)
-#' nyquistplot(sys, w)
-#' nyquistplot(sys, w, subtitle)
 #'
 #' @description \code{nyquist} computes the real and imaginary parts of the frequency response of system \code{sys}
 #' at given frequencies \code{w}
@@ -22,6 +17,15 @@
 #' them individually. This means that for a 2-input, 2-output system, \code{nyquistplot} obtains the response
 #' for input 1 to output 1, input 1 to output 2, input 2 to output 1 and input 2 to output 2.
 #' \code{nyquistplot} uses the \code{subtitle} argument to allow a user assign the plot a sub-title
+#'
+#' Other possible calls using \code{nyquist} and \code{nyquistplot} are:
+#'
+#' \code{nyquist(sys)}
+#' \code{nyquist(sys, w)}
+#' \code{nyquist(sys, w = seq(0, 100, length = 10000), iu = 1)}
+#' \code{nyquistplot(sys)}
+#' \code{nyquistplot(sys, w)}
+#' \code{nyquistplot(sys, w, subtitle)}
 #'
 #' @param sys LTI system of transfer-function, state-space and zero-pole classes
 #' @param  w   vector of range of frequencies at the response is computed in rad/sec

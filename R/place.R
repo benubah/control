@@ -16,6 +16,10 @@
 #'	poles are greater than 10% from the desired locations specified
 #'	in P.
 #'
+#'	@param a State-matrix of a state-space system
+#'	@param b Input-matrix of a state-space system
+#'	@param p closed loop poles
+#'
 #' @examples
 #' F <- rbind(c(0,1),c(0,0))
 #' G <- rbind(0,1)

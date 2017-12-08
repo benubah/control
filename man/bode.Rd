@@ -5,13 +5,7 @@
 \alias{bodeplot}
 \title{Bode Frequency Response for continuous-time Linear Systems.}
 \usage{
-bode(sys)
-bode(sys, w)
 bode(sys, w, iu)
-bode(sys, w = seq(0, 100, length = 10000), iu = 1)
-bodeplot(sys)
-bodeplot(sys, w)
-bodeplot(sys, w, subtitle)
 }
 \arguments{
 \item{sys}{LTI system of transfer-function, state-space and zero-pole classes}
@@ -36,6 +30,22 @@ A plot is returned by calling \code{bodeplot}
 \description{
 \code{bode} computes the magnitude and phase of the frequency response of system \code{sys}
 at given frequencies \code{w}
+
+General Usage:
+
+\code{bode(sys)}
+
+\code{bode(sys, w)}
+
+\code{bode(sys, w, iu)}
+
+\code{bode(sys, w = seq(0, 100, length = 10000), iu = 1)}
+
+\code{bodeplot(sys)}
+
+\code{bodeplot(sys, w)}
+
+\code{bodeplot(sys, w, subtitle)}
 }
 \details{
 \code{bode} Compute the magnitude and phase of the frequency response of system \code{sys}

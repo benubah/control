@@ -53,20 +53,20 @@ tf <- function (num, den, Ts=NULL) {
 }
 
 #' @export
-print.tf <- function ( sys ) {
-
+print.tf <- function ( x, ... ) {
+# arg x is the same sys
   cat(sprintf("\n"))
-  for (i in 1:nrow(sys$num)){
+  for (i in 1:nrow(x$num)){
     cat(paste("y",i,":", sep = ''))
-    argnum <- c(sys$num[i,])
+    argnum <- c(x$num[i,])
 
-  if (nrow(sys$den) == 1 ) {
-    argden <- c(sys$den)
-  } else if(nrow(sys$den) > 1) {
-    argden <- c(sys$den[i,])
+  if (nrow(x$den) == 1 ) {
+    argden <- c(x$den)
+  } else if(nrow(x$den) > 1) {
+    argden <- c(x$den[i,])
   }
 
-  if ( is.null(sys$Ts) || sys$Ts <= 0 ) {
+  if ( is.null(x$Ts) || x$Ts <= 0 ) {
   numstr <- poly2str(argnum, svar = "s", smul = " ")
   denstr <- poly2str(argden, svar = "s", smul = " ")
   } else {
@@ -97,10 +97,10 @@ print.tf <- function ( sys ) {
   }
   cat( sprintf("\n") )
 
-  if ( is.null(sys$Ts) || sys$Ts <= 0) {
+  if ( is.null(x$Ts) || x$Ts <= 0) {
     cat("Transfer Function: Continuous time model", "\n\n")
   } else {
-    cat("Sample Time =", sys$Ts, "\n")
+    cat("Sample Time =", x$Ts, "\n")
     cat("Transfer function: Discrete time model", "\n\n")
     }
 }

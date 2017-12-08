@@ -1,13 +1,17 @@
-# dcgain.R
-#
-# Usage: dcgain(sys)
-#
-#
-# Computes the steady-state gain (or low frequency gain) of a continuous
-# system.
-# sys could be a state-space or transfer-function model
-
-
+#' @title DC Gain
+#'
+#' @description
+#' \code{dcgain} Forms the Givens rotation matrix
+#'
+#'
+#' @details
+#'  \code{dcgain(sys)}  Computes the steady-state gain (or low frequency gain) of a continuous
+#'  system.
+#'
+#' @param sys A transfer function or state-space model
+#'
+#' @return Returns the gain.
+#'
 #' @export
 dcgain <- function(sys) {
   if(class(sys) == 'tf'){

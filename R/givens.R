@@ -1,12 +1,20 @@
-#----------------------------------------------------------------------
-#
-# givens_rot
-#
-# Usage: g <- givens_rot(a, b)
-#      Givens rotation matrix.
-#	G <- givens_rot(a, b) returns the complex Givens rotation matrix
-#
-#---------------------------------------------------------------------
+#' @title Complex Givens Rotation
+#'
+#' @description
+#' \code{givens_rot} Forms the Givens rotation matrix
+#'
+#'
+#' @details
+#'  \code{givens_rot(a, b)} returns the complex Givens rotation matrix
+#'  This function is called by \code{\link{ordschur}}
+#'
+#' @param a Complex Square-matrix
+#' @param b complex Input-matrix
+#'
+#' @return Returns the complex Givens rotation matrix.
+#'
+#' @seealso \code{\link{ordschur}}
+#'
 #' @export
 givens_rot <- function (a, b) {
   absa <- abs(a)

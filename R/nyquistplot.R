@@ -19,13 +19,13 @@ nyquistplot <- function(sys, w = seq(0, 100, length=10000), subtitle = "In(1) Ou
      H <- nyquist(sys, w)
      Real_Axis <- H$h.real
      Imaginary_Axis <- H$h.imag
-     plot.default(Real_Axis, Imaginary_Axis, main="Nyquist Plot for the System", sub = subtitle, col="blue", type = "l", ylim=range( c(Imaginary_Axis, -Imaginary_Axis) ))
-     lines.default(Real_Axis, -Imaginary_Axis, col="blue", type = "l", lty =2)
-     grid(10,10)
+     graphics::plot.default(Real_Axis, Imaginary_Axis, main="Nyquist Plot for the System", sub = subtitle, col="blue", type = "l", ylim=range( c(Imaginary_Axis, -Imaginary_Axis) ))
+     graphics::lines.default(Real_Axis, -Imaginary_Axis, col="blue", type = "l", lty =2)
+     graphics::grid(10,10)
   }
 
   if (ismimo(sys)) {
-      par(mfrow = c( nrow(sys[[4]]), ncol(sys[[4]]) ) )
+    graphics::par(mfrow = c( nrow(sys[[4]]), ncol(sys[[4]]) ) )
       for (i in 1:nrow(sys[[4]])) {
         for (j in 1:ncol(sys[[4]])) {
           nyquistplot(selectsys(sys,i,j), subtitle = paste("In -", i, "Out -", j))

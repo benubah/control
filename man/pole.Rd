@@ -6,6 +6,9 @@
 \usage{
 pole(sys)
 }
+\arguments{
+\item{sys}{LTI system of tf, ss and zpk class}
+}
 \value{
 The function returns a column matrix containing the poles for the given system
 }

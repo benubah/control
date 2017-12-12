@@ -48,12 +48,14 @@ al <- append(sysa1, sysa2)
 connect(al, cbind(2,1,0), cbind(1,2), cbind(1,2))
 ## OR
 connect(append(sysa1, sysa2), cbind(2,1,0), cbind(1), cbind(2))
-## cbind(2,1,0) means that block 2 has an input from block 1 and block 0 (which doesnt exist)
-## cbind(1) means that block 1 is the input of the system, and cbind(2) means block 2 is the
-## output of the system.
-## if we replace cbind(2) with cbind(1,2), this means that the system has two outputs from
-## block 1 and 2
-## i.e. \\code{connect(append(sysa1, sysa2), cbind(2,1,0), cbind(1), cbind(1,2))}
+ \dontrun{
+cbind(2,1,0) means that block 2 has an input from block 1 and block 0 (which doesnt exist)
+cbind(1) means that block 1 is the input of the system, and cbind(2) means block 2 is the
+output of the system.
+if we replace cbind(2) with cbind(1,2), this means that the system has two outputs from
+block 1 and 2
+i.e. \\code{connect(append(sysa1, sysa2), cbind(2,1,0), cbind(1), cbind(1,2))}
+}
 }
 \seealso{
 \code{\link{append}} \code{\link{series}} \code{\link{parallel}} \code{\link{feedback}}

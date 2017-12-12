@@ -52,7 +52,8 @@ feedback(P,P,1)
 feedback(P,P,-1)
 feedback(P,P)
 feedback(P,1)
-feedback(TF("C*P")) # On Octave: feedback(C*P)
+feedback(TF("C*P"))
+\dontrun{ On Octave: feedback(C*P)}
 
 }
 \seealso{

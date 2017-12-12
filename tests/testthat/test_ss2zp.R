@@ -14,9 +14,9 @@ expectedSys2 <- zpk(z, p, k)
 
 context("SS2ZP:  SS conversion to ZPK model")
 test_that("State-space is converted to Zero-Pole-Gain", {
-  expect_equal(sys2$z, expectedSys2$z, tolerance = 1e-05)
-  expect_equal(sys2$p, expectedSys2$p, tolerance = 1e-05)
-  expect_equal(sys2$k, expectedSys2$k, tolerance = 1e-05)
+  all.equal(sys2$z, expectedSys2$z, tolerance = 1e-05)
+  all.equal(sys2$p, expectedSys2$p, tolerance = 1e-05)
+  all.equal(sys2$k, expectedSys2$k, tolerance = 1e-05)
 
 })
 

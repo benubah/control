@@ -42,7 +42,9 @@ where \code{sys} is an object of state-space class
 \examples{
 sys2 <- tf2ss(tf(1, c(1,2,1)))
 ss2tf(sys2)
-## OR
+
+\dontrun{  OR }
+
 ss2tf(sys2$A,sys2$B,sys2$C,sys2$D)
 
 # a single input multiple output system

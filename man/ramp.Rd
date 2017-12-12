@@ -68,7 +68,7 @@ ramp(tf(1, c(1,2,1)), seq(0, 6, 0.1))
 rampplot(tf(1, c(1,2,1)))
 rampplot(tf(1, c(1,2,1)), seq(0, 6, 0.1))
 
-## State-space MIMO systems
+\dontrun{ State-space MIMO systems }
 A <- rbind(c(0,1), c(-25,-4)); B <- rbind(c(1,1), c(0,1));
 C <- rbind(c(1,0), c(0,1)); D <- rbind(c(0,0), c(0,0))
 res1 <- ramp(ss(A,B,C,D), input = 1)

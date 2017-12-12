@@ -28,7 +28,8 @@ Returns a list object of 'zpk' class.
 sys <- zpk(NULL, c(-1,-1), 1)
 sys <- zpk(c(1,2), c(3,4), 5)
 sys <- zpk(c(1,2), c(3+1i,4+2i), 5)
-## Access individual sys elements as
+
+\dontrun{  Access individual sys elements as }
 sys$z
 sys$p
 sys$k

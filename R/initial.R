@@ -62,7 +62,7 @@
 #' initialplot(ss(A,B,C,D), x0)
 #' initialplot(tf(1, c(1,2,1)), t = seq(0, 10, 0.1))
 #'
-#' ## State-space MIMO systems
+#' \dontrun{ State-space MIMO systems }
 #' A <- rbind(c(0,1), c(-25,-4)); B <- rbind(c(1,1), c(0,1));
 #' C <- rbind(c(1,0), c(0,1)); D <- rbind(c(0,0), c(0,0))
 #' res <- initial(ss(A,B,C,D))

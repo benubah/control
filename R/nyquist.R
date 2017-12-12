@@ -45,13 +45,16 @@
 #' nyquist(tf(100, c(1,6,100)))
 #' nyquist(ssdata(tf(100, c(1,6,100))))
 #'
-#' ## MIMO plot
+#' \dontrun{ MIMO plot }
 #' A1 <- rbind(c(0,1), c(-25,-4)); B1 <- rbind(c(1,1), c(0,1))
 #' C1 <- rbind(c(1,0), c(0,1)); D1 <- rbind(c(0,0), c(0,0))
 #' sys1 <- ss(A1,B1,C1,D1)
 #' nyquistplot(sys1)
-#' # Use nyquistplot(selectsys(sys1,1,2)) to obtain the response for a subsystem
-#' # of sys1 for input 1 and output 2 only
+#' \dontrun{ Use nyquistplot(selectsys(sys1,1,2)) to obtain the response for a subsystem
+#'  of sys1 for input 1 and output 2 only.
+#'
+#'  RESET your plot layout using par(mfrow = c(1,1)
+#'    }
 #'
 #' @seealso \code{\link{bode}}
 #'

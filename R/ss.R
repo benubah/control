@@ -23,9 +23,13 @@
 #' C <- cbind(0,1)
 #' D <- 0;
 #' sys <- ss(A,B,C,D)
-#' ## Or
+#'
+#' \dontrun{  OR }
+#'
 #' sys <- ss(c(-2,-1,1,0), c(1,0), c(0,1), 0)
-#' ## Access individual state-space sys elements as
+#'
+#' \dontrun{  Access individual state-space sys elements as }
+#'
 #' sys$A
 #' sys$B
 #' sys$C

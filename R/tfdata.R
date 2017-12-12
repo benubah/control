@@ -22,7 +22,7 @@
 #' tfdata(ss2zp( A,B,C,D))
 #' tfdata(tf(c(1), c(1,2,1)))
 #'
-#'  ## MIMO system
+#'  \dontrun{  MIMO system }
 #' A = rbind(c(0,1), c(-25,-4)); B = rbind(c(1,1), c(0,1));
 #' C = rbind(c(1,0), c(0,1)); D = rbind(c(0,0), c(0,0))
 #' tfdata(ss(A,B,C,D))

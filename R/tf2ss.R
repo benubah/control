@@ -24,10 +24,14 @@
 #'
 #' @examples
 #' tf2ss(tf(1, c(1,2,1)))
-#' ## Or
+#'
+#' \dontrun{  OR }
+#'
 #' sys <- tf(1, c(1,2,1))
 #' tf2ss(sys)
-#' ## Or
+#'
+#' \dontrun{  OR }
+#'
 #' sys2 <- tf2ss(1, c(1,2,1))
 #'
 #' @export

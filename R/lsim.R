@@ -35,9 +35,9 @@
 #' plot(signal$t, response$y, type = "l", main = "Linear Simulation Response", col = "blue")
 #' lines(signal$t, signal$u, type = "l", col = "grey")
 #' grid(5,5, col = "lightgray")
-#' ## based on example at: https://www.mathworks.com/help/ident/ref/lsim.html
+#' \dontrun{ based on example at: https://www.mathworks.com/help/ident/ref/lsim.html }
 #'
-#' ## MIMO system response
+#' \dontrun{ MIMO system response }
 #' A <- rbind(c(0,1), c(-25,-4)); B <- rbind(c(1,1), c(0,1))
 #' C <- rbind(c(1,0), c(0,1)); D <- rbind(c(0,0), c(0,0))
 #' response <- lsim(ss(A,B,C,D), cbind(signal$u, signal$u), signal$t)

@@ -34,7 +34,9 @@
 #' @examples
 #' sys2 <- tf2ss(tf(1, c(1,2,1)))
 #' ss2tf(sys2)
-#' ## OR
+#'
+#' \dontrun{  OR }
+#'
 #' ss2tf(sys2$A,sys2$B,sys2$C,sys2$D)
 #'
 #' # a single input multiple output system
@@ -117,7 +119,7 @@ ss2tf <- function(a, b, c, d, iu = 1) {
   num <- matrix(1, d_rows, maxdimA + 1)
 
   for (i in 1:d_rows) {
-    num[i,] <- round(pracma::Poly(a-b %*% c[i, , drop = FALSE]) + (d[i] - 1) * den, digits = 3)
+    num[i,] <- pracma::Poly(a-b %*% c[i, , drop = FALSE]) + (d[i] - 1) * den
   }
   sys1 <- list(num = num, den = den)
   class(sys1) <- 'tf'

@@ -1,6 +1,6 @@
 #' @export
 nyquistplot <- function(sys, w = seq(0, 100, length=10000), subtitle = "In(1) Out(1)"){
-  if (issiso(sys)) {
+  if (class(sys) == 'tf' || class(sys) == 'zpk' || issiso(sys)) {
      H <- nyquist(sys, w)
      Real_Axis <- H$h.real
      Imaginary_Axis <- H$h.imag
@@ -9,7 +9,7 @@ nyquistplot <- function(sys, w = seq(0, 100, length=10000), subtitle = "In(1) Ou
      graphics::grid(10,10)
   }
 
-  if (ismimo(sys)) {
+  if(class(sys) == 'ss' && ismimo(sys)) {
     graphics::par(mfrow = c( nrow(sys[[4]]), ncol(sys[[4]]) ) )
       for (i in 1:nrow(sys[[4]])) {
         for (j in 1:ncol(sys[[4]])) {

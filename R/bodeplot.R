@@ -2,7 +2,7 @@
 
 #' @export
 bodeplot <- function(sys,  w = seq(0, 100, length=10000), iu = 1, subtitle = "In(1) Out(1)") {
- if (class(sys) != 'ss' || issiso(sys)) {
+  if (class(sys) == 'tf' || class(sys) == 'zpk' || issiso(sys)) {
   resp <- bode(sys, w, iu)
   w <- resp$w
   mag <- resp$mag

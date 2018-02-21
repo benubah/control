@@ -7,7 +7,11 @@ This library started as a [Google Summer of Code project (2017)](https://summero
 
 ## Installation
 
-The package may be installed from this GitHub repository using `devtools` in the following manner:
+This package can be installed from CRAN:
+
+`install.packages("control")`
+
+The package may also be installed from this GitHub repository using `devtools` in the following manner:
 
 `install.packages("devtools")  # if not already installed on your PC`
 

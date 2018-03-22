@@ -53,15 +53,21 @@ care <- function(A, B, Q, R = 1) {
   if (nr!=n || nc!=n) {
     stop("CARE: Q must have same dimensions as A")
   }
-  if(!is.matrix(R)) {
-  R <- R * diag(1,nrow(A),ncol(A))
+  if(!is.matrix(R) || nrow(R) <= 1) {
+  R <- c(R) * diag(1,nrow(A),ncol(A))
   }
+  if (nrow(R) == nrow(B)) {
   G <- solve(R) %*% B %*% t(B)
+  } else {
+    G <-   B %*% solve(R) %*% t(B)
+  }
 
   var1 <- rbind(cbind(A, -G), cbind(-Q, t(-A)))
   val <- var1 * (1.0 + (eps * eps) * sqrt(as.complex(-1)))
-  tmp <- Matrix::Schur(val) # coerces imaginary parts
-  #tmp <- qz.zgees(val) # schur decomposition from QZ package retaining imaginary parts
+  #print(val)
+  #tmp <- Matrix::Schur(val) # coerces imaginary parts
+  tmp <- QZ::qz.zgees(val) # schur decomposition from QZ package retaining imaginary parts
+  #print(tmp)
   q <- as.matrix(tmp$Q)
   t <- as.matrix(tmp$T)
   tol <- 10.0 * eps * max(abs(diag(t)))
@@ -84,7 +90,11 @@ care <- function(A, B, Q, R = 1) {
   U <- res$U
   X <- Re(U[(n+1):(n+n), 1:n]) %*% solve(Re(U[1:n, 1:n]))
   E <- diag(1, nrow(A))
+  if (nrow(R) == nrow(B)) {
   gain <- t(B) %*% solve(R) %*% X %*% E
+  } else {
+  gain <-  solve(R) %*% t(B) %*% X %*% E
+  }
   L <- as.matrix(pracma::eig(( A - B %*% gain )))
 
   return(list(X = X, L = L, G = gain))

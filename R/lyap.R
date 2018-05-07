@@ -5,7 +5,7 @@
     #'
     #'	A*X+X*A' = -B
     #'
-    #'  \code{lyap(A, B, C)} solves the Sylvester equation
+    #'  \code{lyap(A, B, C)} solves the Sylvester equation A*X + X*B = -C
     #'
     #' @details
     #' This function solves the lyapunov equation using an eigenvalue

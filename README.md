@@ -34,7 +34,7 @@ Most fundamental features of this toolbox were developed during the Google Summe
 
 [Google Summer of Code project (2017)](https://summerofcode.withgoogle.com/projects/#5201658249216000) related articles demonstrating the usage of this toolbox are underlisted:
 
-- [Control Systems Toolbox in R - a GSoC 2017 Project](https://rviews.rstudio.com/2017/07/06/control-systems-toolbox-in-r---a-gsoc-2017-project/)
+- [Control Systems Toolbox in R - a GSoC 2017 Project](https://rviews.rstudio.com/2017/07/06/control-systems-toolbox-in-r-a-gsoc-2017-project/)
 - [Control Systems Toolbox – System Interconnection](https://rviews.rstudio.com/2017/08/24/control-systems-toolbox/)
 
 ## Documentation
